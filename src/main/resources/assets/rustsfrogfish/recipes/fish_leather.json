@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rustsfrogfish:raw_frogfish"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "rustsfrogfish:fish_leather"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rustsfrogfish:fish_leather"
+    },
+    {
+      "item": "rustsfrogfish:fish_leather"
+    },
+    {
+      "item": "rustsfrogfish:fish_leather"
+    }
+  ],
+  "result": {
+    "item": "minecraft:leather"
+  }
+}
