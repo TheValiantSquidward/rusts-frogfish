@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.entity.custom.NeilpeartiaEntity;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib3.geo.render.built.GeoModel;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
@@ -23,17 +24,15 @@ public class NeilpeartiaRenderer extends GeoEntityRenderer<NeilpeartiaEntity> {
     public ResourceLocation getTextureLocation(NeilpeartiaEntity instance) {
         return new ResourceLocation(RustsFrogfish.MOD_ID, "textures/entity/frogfish.png");
     }
-        public ResourceLocation getKermitTextureLocation(NeilpeartiaEntity instance) {
-            return new ResourceLocation(RustsFrogfish.MOD_ID, "textures/entity/kermit.png");
+
+    public ResourceLocation getKermitTextureLocation(NeilpeartiaEntity instance) {
+        return new ResourceLocation(RustsFrogfish.MOD_ID, "textures/entity/kermit.png");
     }
 
 
-
     //@Override
-    public RenderType getRenderType(NeilpeartiaEntity animatable, float partialTicks, ResourceLocation texture, PoseStack stack,
-                                    @Nullable MultiBufferSource renderTypeBuffer,
-                                    @Nullable VertexConsumer vertexBuilder, int packedLightIn,
-                                    ResourceLocation textureLocation) {
-        return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
+    @Override
+    public RenderType getRenderType(NeilpeartiaEntity animatable, float partialTicks, PoseStack stack, @Nullable MultiBufferSource renderTypeBuffer, @Nullable VertexConsumer vertexBuilder, int packedLightIn, ResourceLocation textureLocation) {
+        return RenderType.entityTranslucent(textureLocation);
     }
 }
