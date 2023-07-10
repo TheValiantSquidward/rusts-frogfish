@@ -10,18 +10,23 @@ import net.minecraft.world.entity.EntityType;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.entity.custom.NeilpeartiaEntity;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
 public class NeilpeartiaRenderer extends GeoEntityRenderer<NeilpeartiaEntity> {
+
     public NeilpeartiaRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new NeilpeartiaModel());
-        this.shadowRadius = 0.4f;
     }
 
     @Override
     public ResourceLocation getTextureLocation(NeilpeartiaEntity instance) {
         return new ResourceLocation(RustsFrogfish.MOD_ID, "textures/entity/frogfish.png");
     }
+        public ResourceLocation getKermitTextureLocation(NeilpeartiaEntity instance) {
+            return new ResourceLocation(RustsFrogfish.MOD_ID, "textures/entity/kermit.png");
+    }
+
 
 
     //@Override

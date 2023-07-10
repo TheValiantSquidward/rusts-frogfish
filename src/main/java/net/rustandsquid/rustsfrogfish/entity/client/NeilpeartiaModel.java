@@ -16,6 +16,7 @@ public class NeilpeartiaModel extends AnimatedGeoModel<NeilpeartiaEntity> {
         return new ResourceLocation(RustsFrogfish.MOD_ID, "textures/frogfish.png");
     }
 
+
     @Override
     public ResourceLocation getAnimationResource(NeilpeartiaEntity animatable) {
         return new ResourceLocation(RustsFrogfish.MOD_ID, "animations/model.animation.json");

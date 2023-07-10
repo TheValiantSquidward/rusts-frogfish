@@ -1,5 +1,6 @@
 package net.rustandsquid.rustsfrogfish.entity.custom;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -27,6 +28,11 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     private static final int VARIANTS = 2;
 
+
+    public boolean becomedKermit() {
+        String s = ChatFormatting.stripFormatting(this.getName().getString());
+        return s != null && s.toLowerCase().contains("kermit");
+    }
 
     public NeilpeartiaEntity(EntityType<? extends PathfinderMob> p_21683_, Level p_21684_) {
         super(p_21683_, p_21684_);
