@@ -3,7 +3,7 @@
   "item.rustsfrogfish.raw_frogfish" : "Raw Neilpeartia",
   "item.rustsfrogfish.fish_leather" : "Fish Leather",
   "item.rustsfrogfish.frogfish_lure" : "Shed Lure",
-  "item.rustsfrogfish.neilpeartia_eggs" : "Neilpeartia Eggs",
+  "block.rustsfrogfish.neilpeartia_eggs" : "Neilpeartia Eggs",
   "itemGroup.rustfrogfishtab": "Rust's Frogfish",
 
   "item.minecraft.potion.effect.glow_potion": "Potion of Glowing",
