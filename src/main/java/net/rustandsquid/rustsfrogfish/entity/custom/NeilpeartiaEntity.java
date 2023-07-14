@@ -28,12 +28,6 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     private static final int VARIANTS = 2;
 
-
-    public boolean becomedKermit() {
-        String s = ChatFormatting.stripFormatting(this.getName().getString());
-        return s != null && s.toLowerCase().contains("kermit");
-    }
-
     public NeilpeartiaEntity(EntityType<? extends PathfinderMob> p_21683_, Level p_21684_) {
         super(p_21683_, p_21684_);
     }
@@ -43,6 +37,10 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
                 .add(Attributes.MOVEMENT_SPEED, 0.2f)
                 .add(Attributes.MAX_HEALTH, 16.0D).build();
 
+    }
+
+    public boolean canBreatheUnderwater() {
+        return true;
     }
 
 
