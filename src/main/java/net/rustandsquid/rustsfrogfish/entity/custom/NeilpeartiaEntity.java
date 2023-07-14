@@ -1,16 +1,22 @@
 package net.rustandsquid.rustsfrogfish.entity.custom;
 
+import com.peeko32213.unusualprehistory.common.entity.EntityDunkleosteus;
+import com.peeko32213.unusualprehistory.common.entity.EntityTyrannosaurusRex;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -37,6 +43,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
                 .add(Attributes.MOVEMENT_SPEED, 0.2f)
                 .add(Attributes.MAX_HEALTH, 16.0D).build();
 
+
     }
 
     public boolean canBreatheUnderwater() {
@@ -47,9 +54,22 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     protected void registerGoals() {
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(2, new RandomSwimmingGoal(this, 0.8D, 1));
-        this.goalSelector.addGoal(5, new RandomStrollGoal(this, 0.8D, 1));
+        this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
+        this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, EntityDunkleosteus.class, 8.0F, 1.6D, 1.4D, EntitySelector.NO_SPECTATORS::test));
+        this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, EntityTyrannosaurusRex.class, 8.0F, 1.6D, 1.4D, EntitySelector.NO_SPECTATORS::test));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
+        this.goalSelector.addGoal(2, new RandomSwimmingGoal(this, 0.7D, 1) {
+            @Override
+            public boolean canUse() {
+                return super.canUse() && isInWater();
+            }
+        });
+        this.goalSelector.addGoal(2, new RandomStrollGoal(this, 0.7D, 15) {
+            @Override
+            public boolean canUse() {
+                return !this.mob.isInWater() && super.canUse();
+            }
+        });
     }
 
 

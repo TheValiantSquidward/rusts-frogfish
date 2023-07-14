@@ -20,6 +20,8 @@ import net.rustandsquid.rustsfrogfish.item.ModItems;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import static net.rustandsquid.rustsfrogfish.item.ModCreativeModeTab.RUSTSFROGFISH_TAB;
+
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, RustsFrogfish.MOD_ID);
@@ -58,7 +60,7 @@ public class ModBlocks {
                     ModEntityTypes.NEILPEARTIA,
                     false
             ),
-            entry -> new PlaceOnWaterBlockItem(entry.get(), new Item.Properties().tab(UnusualPrehistory.DINO_TAB)));
+            entry -> new PlaceOnWaterBlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
 
 
     public static void register(IEventBus eventBus){
