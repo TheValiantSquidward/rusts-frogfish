@@ -1,7 +1,5 @@
 {
-  "variants": {
-    "": {
-      "model": "unusualprehistory:block/eggs/neilpeartia_eggs"
-    }
+  "variants" : {
+    "": { "model": "rustsfrogfish:block/neilpeartia_eggs"}
   }
 }
