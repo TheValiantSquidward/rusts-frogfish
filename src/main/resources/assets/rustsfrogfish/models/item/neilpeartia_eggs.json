@@ -1,4 +1,6 @@
 {
-  "parent": "rustsfrogfish:block/neilpeartia_eggs"
-
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "rustsfrogfish:item/neilpeartia_eggs"
+  }
 }

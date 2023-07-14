@@ -23,6 +23,9 @@ public class ModItems {
     public static final RegistryObject<Item> FISH_LEATHER = ITEMS.register("fish_leather",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
+    public static final RegistryObject<Item> NEILPEARTIA_VIAL = ITEMS.register("neilpeartia_dna",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+
     public static final RegistryObject<Item> FROGFISH_LURE = ITEMS.register("frogfish_lure",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 

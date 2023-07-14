@@ -1,6 +1,6 @@
 {
   "parent": "unusualprehistory:block/template_eggs/template_flat_water_egg",
   "textures": {
-    "all": "rustsfrogfish:item/neilpeartia_eggs.png"
+    "texture": "rustsfrogfish:block/neilpeartia_eggs_block"
   }
 }
