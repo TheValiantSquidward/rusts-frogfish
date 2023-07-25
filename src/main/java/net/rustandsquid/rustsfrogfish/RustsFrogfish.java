@@ -21,6 +21,7 @@ import net.rustandsquid.rustsfrogfish.entity.client.NeilpeartiaRenderer;
 import net.rustandsquid.rustsfrogfish.item.ModItems;
 import net.rustandsquid.rustsfrogfish.potion.ModPotions;
 import net.rustandsquid.rustsfrogfish.util.HahaSuperBrewer;
+import net.rustandsquid.sound.ModSounds;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 
@@ -41,6 +42,8 @@ public class RustsFrogfish {
         ModEntityTypes.register(modEventBus);
 
         GeckoLib.initialize();
+
+        ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
