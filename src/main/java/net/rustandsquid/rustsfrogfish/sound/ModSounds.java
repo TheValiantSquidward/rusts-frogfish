@@ -8,9 +8,10 @@ import net.minecraftforge.registries.RegistryObject;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 
 public class ModSounds {
-    public static final DeferredRegister<SoundEvent> MOD_SOUNDS =
+    public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, RustsFrogfish.MOD_ID);
 
 
-    public static void register(IEventBus eventBus) { MOD_SOUNDS.register(eventBus); }
+
+    public static void register(IEventBus eventBus) { SOUND_EVENTS.register(eventBus); }
 }
