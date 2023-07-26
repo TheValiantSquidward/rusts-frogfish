@@ -2,8 +2,6 @@ package net.rustandsquid.rustsfrogfish;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,14 +12,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
 import net.rustandsquid.rustsfrogfish.block.ModBlocks;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
 import net.rustandsquid.rustsfrogfish.entity.client.NeilpeartiaRenderer;
 import net.rustandsquid.rustsfrogfish.item.ModItems;
 import net.rustandsquid.rustsfrogfish.potion.ModPotions;
 import net.rustandsquid.rustsfrogfish.util.HahaSuperBrewer;
-import net.rustandsquid.sound.ModSounds;
+import net.rustandsquid.rustsfrogfish.sound.ModSounds;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 
