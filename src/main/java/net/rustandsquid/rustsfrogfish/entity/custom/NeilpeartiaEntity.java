@@ -65,10 +65,10 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.walk"));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.walk", true));
         return PlayState.CONTINUE;
         }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.idle"));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.idle", true));
         return PlayState.CONTINUE;
     }
 
