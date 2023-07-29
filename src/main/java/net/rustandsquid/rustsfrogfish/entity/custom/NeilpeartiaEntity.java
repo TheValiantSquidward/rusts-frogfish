@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.Animation;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
@@ -65,11 +66,13 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().loop("animation.model.walk"));
         return PlayState.CONTINUE;
-        }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.idle", true));
+    }
+        else
+        event.getController().setAnimation(new AnimationBuilder().loop("animation.model.idle"));
         return PlayState.CONTINUE;
+
     }
 
     @Override
