@@ -12,13 +12,13 @@
 			},
 			"bones": [
 				{
-					"name": "bone9",
+					"name": "Frogfish",
 					"pivot": [0, 4, 0],
 					"rotation": [0, 180, 0]
 				},
 				{
-					"name": "bone3",
-					"parent": "bone9",
+					"name": "Body",
+					"parent": "Frogfish",
 					"pivot": [0, 4, 0],
 					"cubes": [
 						{"origin": [-0.5, 1, -18], "size": [1, 7, 14], "uv": [40, 45]},
@@ -27,48 +27,48 @@
 					]
 				},
 				{
-					"name": "bone4",
-					"parent": "bone3",
+					"name": "Jaw",
+					"parent": "Body",
 					"pivot": [0, 4, 10],
 					"cubes": [
 						{"origin": [-5, 4, 10], "size": [10, 11, 3], "uv": [0, 73]}
 					]
 				},
 				{
-					"name": "bone6",
-					"parent": "bone3",
+					"name": "Backfin",
+					"parent": "Body",
 					"pivot": [0, 24, -8],
 					"cubes": [
 						{"origin": [-0.5, 20, -18], "size": [1, 10, 18], "uv": [0, 45]}
 					]
 				},
 				{
-					"name": "bone7",
-					"parent": "bone3",
+					"name": "Lure",
+					"parent": "Body",
 					"pivot": [0, 21, 10],
 					"cubes": [
 						{"origin": [0, 16, 10], "size": [0, 8, 17], "uv": [20, 28]}
 					]
 				},
 				{
-					"name": "bone8",
-					"parent": "bone3",
+					"name": "Tail",
+					"parent": "Body",
 					"pivot": [0, 15, -16],
 					"cubes": [
 						{"origin": [-4, 11, -23], "size": [8, 8, 8], "uv": [70, 37]}
 					]
 				},
 				{
-					"name": "bone5",
-					"parent": "bone8",
+					"name": "Tailfin",
+					"parent": "Tail",
 					"pivot": [0, 15, -23],
 					"cubes": [
 						{"origin": [-0.5, 8, -31], "size": [1, 15, 11], "uv": [59, 55]}
 					]
 				},
 				{
-					"name": "bone2",
-					"parent": "bone9",
+					"name": "Leg1",
+					"parent": "Frogfish",
 					"pivot": [-6, 10, -1],
 					"cubes": [
 						{"origin": [-8, 1, -4], "size": [5, 11, 6], "uv": [32, 67]},
@@ -76,8 +76,8 @@
 					]
 				},
 				{
-					"name": "bone",
-					"parent": "bone9",
+					"name": "Leg2",
+					"parent": "Frogfish",
 					"pivot": [6, 12, -1],
 					"cubes": [
 						{"origin": [3, 0.97786, -4.06906], "size": [5, 11, 6], "uv": [0, 0]},

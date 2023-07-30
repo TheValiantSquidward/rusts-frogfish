@@ -5,7 +5,7 @@
 			"loop": true,
 			"animation_length": 1,
 			"bones": {
-				"bone2": {
+				"Leg1": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -71,7 +71,7 @@
 						}
 					}
 				},
-				"bone": {
+				"Leg2": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -137,7 +137,7 @@
 						}
 					}
 				},
-				"bone3": {
+				"Body": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -159,7 +159,7 @@
 						}
 					}
 				},
-				"bone4": {
+				"Jaw": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -181,7 +181,7 @@
 						}
 					}
 				},
-				"bone5": {
+				"Tailfin": {
 					"rotation": {
 						"0.25": {
 							"pre": {
@@ -206,7 +206,7 @@
 						}
 					}
 				},
-				"bone6": {
+				"Backfin": {
 					"rotation": {
 						"0.0833": {
 							"vector": [0, 0, 15]
@@ -219,7 +219,7 @@
 						}
 					}
 				},
-				"bone7": {
+				"Lure": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -265,7 +265,7 @@
 						}
 					}
 				},
-				"bone8": {
+				"Tail": {
 					"rotation": {
 						"0.0833": {
 							"pre": {
@@ -294,9 +294,9 @@
 		},
 		"animation.model.swim": {
 			"loop": true,
-			"animation_length": 1.04167,
+			"animation_length": 1,
 			"bones": {
-				"bone": {
+				"Leg2": {
 					"rotation": {
 						"0.1667": {
 							"pre": {
@@ -321,7 +321,7 @@
 						}
 					}
 				},
-				"bone2": {
+				"Leg1": {
 					"rotation": {
 						"0.1667": {
 							"pre": {
@@ -346,12 +346,12 @@
 						}
 					}
 				},
-				"bone3": {
+				"Body": {
 					"rotation": {
 						"vector": [0, 2.5, 0]
 					}
 				},
-				"bone4": {
+				"Jaw": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -373,7 +373,7 @@
 						}
 					}
 				},
-				"bone7": {
+				"Lure": {
 					"rotation": {
 						"0.125": {
 							"pre": {
@@ -398,7 +398,7 @@
 						}
 					}
 				},
-				"bone5": {
+				"Tailfin": {
 					"rotation": {
 						"0.1667": {
 							"pre": {
@@ -423,7 +423,7 @@
 						}
 					}
 				},
-				"bone9": {
+				"Frogfish": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -449,9 +449,9 @@
 		},
 		"animation.model.idle": {
 			"loop": true,
-			"animation_length": 1.04167,
+			"animation_length": 1,
 			"bones": {
-				"bone3": {
+				"Body": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -473,7 +473,7 @@
 						}
 					}
 				},
-				"bone4": {
+				"Jaw": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -495,7 +495,7 @@
 						}
 					}
 				},
-				"bone7": {
+				"Lure": {
 					"rotation": {
 						"0.125": {
 							"pre": {
@@ -538,7 +538,7 @@
 						}
 					}
 				},
-				"bone5": {
+				"Tailfin": {
 					"rotation": {
 						"0.125": {
 							"pre": {
@@ -569,7 +569,7 @@
 			"loop": true,
 			"animation_length": 1,
 			"bones": {
-				"bone3": {
+				"Body": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -601,7 +601,7 @@
 							},
 							"lerp_mode": "catmullrom"
 						},
-						"0.9583": {
+						"1.0": {
 							"post": {
 								"vector": [-5, 0, 0]
 							},
@@ -632,7 +632,7 @@
 						}
 					}
 				},
-				"bone4": {
+				"Jaw": {
 					"rotation": {
 						"0.1667": {
 							"pre": {
@@ -663,7 +663,7 @@
 						}
 					}
 				},
-				"bone7": {
+				"Lure": {
 					"rotation": {
 						"0.0833": {
 							"pre": {
@@ -698,7 +698,7 @@
 							},
 							"lerp_mode": "catmullrom"
 						},
-						"0.9167": {
+						"1.0": {
 							"post": {
 								"vector": [-17.5, 0, 0]
 							},
@@ -712,7 +712,7 @@
 			"loop": true,
 			"animation_length": 0.75,
 			"bones": {
-				"bone3": {
+				"Body": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -772,7 +772,7 @@
 						}
 					}
 				},
-				"bone7": {
+				"Lure": {
 					"rotation": {
 						"0.0": {
 							"post": {
@@ -794,7 +794,7 @@
 						}
 					}
 				},
-				"bone5": {
+				"Tailfin": {
 					"rotation": {
 						"0.0": {
 							"post": {
