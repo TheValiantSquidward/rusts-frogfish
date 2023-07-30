@@ -2,7 +2,7 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "name": "neilpeartia",
+      "name": "nealpeartia",
       "rolls": 1,
       "entries": [
         {
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "name": "neilpeartia_1",
+      "name": "nealpeartia_1",
       "rolls": 1,
       "entries": [
         {
