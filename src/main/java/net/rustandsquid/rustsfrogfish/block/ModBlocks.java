@@ -2,8 +2,6 @@ package net.rustandsquid.rustsfrogfish.block;
 
 import com.peeko32213.unusualprehistory.UnusualPrehistory;
 import com.peeko32213.unusualprehistory.common.block.BlockDinosaurWaterEggs;
-import com.peeko32213.unusualprehistory.core.registry.UPEntities;
-import com.peeko32213.unusualprehistory.core.registry.UPItems;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -14,7 +12,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
-import net.rustandsquid.rustsfrogfish.entity.custom.NeilpeartiaEntity;
 import net.rustandsquid.rustsfrogfish.item.ModItems;
 
 import java.util.function.Function;
