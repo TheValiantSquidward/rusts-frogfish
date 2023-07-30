@@ -52,7 +52,7 @@ public class ModBlocks {
     }
 
 
-    public static final Supplier<Block> NEILPEARTIA_EGGS = create("neilpeartia_eggs.json",
+    public static final Supplier<Block> NEILPEARTIA_EGGS = create("neilpeartia_eggs",
             () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS).instabreak().noOcclusion().noCollission().randomTicks(),
                     ModEntityTypes.NEILPEARTIA,
                     false
