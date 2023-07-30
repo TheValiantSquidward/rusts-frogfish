@@ -13,7 +13,7 @@ public class NeilpeartiaModel extends AnimatedGeoModel<NeilpeartiaEntity> {
 
     @Override
     public ResourceLocation getTextureResource(NeilpeartiaEntity object) {
-        return new ResourceLocation(RustsFrogfish.MOD_ID, "textures/frogfish.png");
+        return NeilpeartiaRenderer.LOCATION_BY_VARIANT.get(object.getVariant());
     }
 
 
