@@ -89,14 +89,44 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     compound.putBoolean("Golden", this.isGolden());
     }
 
-   public void readAdditionalSaveData(CompoundTag compound) {
+    public boolean isDull() {
+        return this.entityData.get(DULLED).booleanValue();
+    }
+
+    public boolean isGolden() {
+        return this.entityData.get(GOLDEN).booleanValue();
+    }
+
+    public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         setVariant(compound.getInt("Variant"));
         this.setDull(compound.getBoolean("Dulled"));
         this.setGolden(compound.getBoolean("Golden"));
     }
 
+    public void setGolden(boolean green) {
+        boolean prev = isGolden();
+        if (!prev && green) {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.3D);
+            this.setHealth(20.0F);
+        } else {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+        }
+        this.heal(this.getMaxHealth());
+        this.entityData.set(GOLDEN, green);
+    }
 
+    public void setDull(boolean green) {
+        boolean prev = isDull();
+        if (!prev && green) {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.3D);
+            this.setHealth(16.0F);
+        } else {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+        }
+        this.heal(this.getMaxHealth());
+        this.entityData.set(DULLED, green);
+    }
 
 
     @Override

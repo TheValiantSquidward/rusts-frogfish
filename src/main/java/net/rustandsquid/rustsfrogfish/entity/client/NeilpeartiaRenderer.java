@@ -26,9 +26,6 @@ public class NeilpeartiaRenderer extends GeoEntityRenderer<NeilpeartiaEntity> {
         super(renderManager, new NeilpeartiaModel());
     }
 
-
-
-
     //@Override
     @Override
     public RenderType getRenderType(NeilpeartiaEntity animatable, float partialTicks, PoseStack stack, @Nullable MultiBufferSource renderTypeBuffer, @Nullable VertexConsumer vertexBuilder, int packedLightIn, ResourceLocation textureLocation) {
