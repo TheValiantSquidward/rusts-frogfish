@@ -47,6 +47,10 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
         super(p_21683_, p_21684_);
     }
 
+
+
+
+
     public static AttributeSupplier setAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MOVEMENT_SPEED, 0.2f)
@@ -136,6 +140,28 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
         this.entityData.define(DULLED, Boolean.valueOf(false));
         this.entityData.define(GOLDEN, Boolean.valueOf(false));
 
+    }
+
+
+    public void determineVariant(int variantChange){
+        if (variantChange <= 20) {
+            this.setDull(true);
+            this.setVariant(1);
+
+        }else {
+            this.setGolden(true);
+            this.setVariant(0);
+        }
+    }
+
+
+    @javax.annotation.Nullable
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor worldIn, DifficultyInstance difficultyIn, MobSpawnType reason, @javax.annotation.Nullable SpawnGroupData spawnDataIn, @javax.annotation.Nullable CompoundTag dataTag) {
+        spawnDataIn = super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
+        int variantChange = this.random.nextInt(0, 100);
+        this.determineVariant(variantChange);
+        return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
     @Override
