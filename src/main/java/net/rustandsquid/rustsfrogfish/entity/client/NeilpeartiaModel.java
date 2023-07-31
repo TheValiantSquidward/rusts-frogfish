@@ -1,7 +1,6 @@
 package net.rustandsquid.rustsfrogfish.entity.client;
 
 import com.electronwill.nightconfig.core.ConfigSpec;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.entity.custom.NeilpeartiaEntity;
