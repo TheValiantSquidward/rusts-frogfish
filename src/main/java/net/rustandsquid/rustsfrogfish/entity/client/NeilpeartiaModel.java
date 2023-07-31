@@ -7,8 +7,8 @@ import net.rustandsquid.rustsfrogfish.entity.custom.NeilpeartiaEntity;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class NeilpeartiaModel extends AnimatedGeoModel<NeilpeartiaEntity> {
-    private static final ResourceLocation TEXTURE_DULLED = new ResourceLocation("rustsfrogfish:textures/entity/2frogfish");
-    private static final ResourceLocation TEXTURE_GOLDEN = new ResourceLocation("rustsfrogfish:textures/entity/frogfish");
+    private static final ResourceLocation TEXTURE_DULLED = new ResourceLocation(RustsFrogfish .MOD_ID, "textures/entity/2frogfish");
+    private static final ResourceLocation TEXTURE_GOLDEN = new ResourceLocation(RustsFrogfish .MOD_ID,"textures/entity/frogfish");
     private ConfigSpec entityData;
 
     public ResourceLocation getTextureResource(NeilpeartiaEntity object)
