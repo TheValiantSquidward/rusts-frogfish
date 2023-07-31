@@ -107,7 +107,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     public void setGolden(boolean green) {
         boolean prev = isGolden();
         if (!prev && green) {
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.3D);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
             this.setHealth(20.0F);
         } else {
             this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
@@ -119,7 +119,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     public void setDull(boolean green) {
         boolean prev = isDull();
         if (!prev && green) {
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.3D);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
             this.setHealth(16.0F);
         } else {
             this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
