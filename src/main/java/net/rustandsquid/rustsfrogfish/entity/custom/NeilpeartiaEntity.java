@@ -34,12 +34,14 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
+import static com.ibm.icu.util.ULocale.getVariant;
+
 public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
-    private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
-            SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.INT);
-
+    private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> GOLDEN = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> DULLED = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
 
     public NeilpeartiaEntity(EntityType<? extends PathfinderMob> p_21683_, Level p_21684_) {
         super(p_21683_, p_21684_);
@@ -73,36 +75,59 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().loop("animation.model.walk"));
+            return PlayState.CONTINUE;
+        } else
+            event.getController().setAnimation(new AnimationBuilder().loop("animation.model.idle"));
         return PlayState.CONTINUE;
-    }
-        else
-        event.getController().setAnimation(new AnimationBuilder().loop("animation.model.idle"));
-        return PlayState.CONTINUE;
 
     }
 
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putInt("Variant", this.getTypeVariant());
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putInt("Variant", getVariant());
+        compound.putBoolean("Dulled", this.isDull());
+        compound.putBoolean("Golden", this.isGolden());
     }
 
-    @Override protected void defineSynchedData() {
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        setVariant(compound.getInt("Variant"));
+        this.setDull(compound.getBoolean("Dulled"));
+        this.setGolden(compound.getBoolean("Golden"));
+    }
+
+
+
+
+    @Override
+    protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
+        this.entityData.define(VARIANT, 0);
+        this.entityData.define(DULLED, Boolean.valueOf(false));
+        this.entityData.define(GOLDEN, Boolean.valueOf(false));
+
     }
 
     @Override
     public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController( this, "controller", 0, this::predicate));
+        data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
     }
 
     @Override
     public AnimationFactory getFactory() {
-    return factory;
+        return factory;
     }
 
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.COD_FLOP, 0.15F, 1.0F);
+    }
+
+    public int getVariant() {
+        return this.entityData.get(VARIANT);
+    }
+
+    public void setVariant(int variant) {
+        this.entityData.set(VARIANT, variant);
     }
 
     protected SoundEvent getAmbientSound() {
@@ -120,26 +145,6 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     protected float getSoundVolume() {
         return 0.2F;
     }
-
-
-    //VARIANTS
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_146746, DifficultyInstance p_146747,
-                                        MobSpawnType p_146748, @Nullable SpawnGroupData p_146749,
-                                        @Nullable CompoundTag p_146750) {
-        NeilVariant variant = Util.getRandom(NeilVariant.values(), this.random);
-        setVariant(variant);
-        return super.finalizeSpawn(p_146746, p_146747, p_146748, p_146749, p_146750);
-    }
-
-    public NeilVariant getVariant() {
-        return NeilVariant.byId(this.getTypeVariant() & 225);
-    }
-
-    private int getTypeVariant() {
-        return this.entityData.get((DATA_ID_TYPE_VARIANT));
-    }
-
-    private void setVariant(NeilVariant variant) {
-        this.entityData.set(DATA_ID_TYPE_VARIANT, variant.getId() & 225);
-    }
 }
+
+

@@ -20,22 +20,13 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 import java.util.Map;
 
 public class NeilpeartiaRenderer extends GeoEntityRenderer<NeilpeartiaEntity> {
-    public static final Map<NeilVariant, ResourceLocation> LOCATION_BY_VARIANT =
-            Util.make(Maps.newEnumMap(NeilVariant.class), (p_114874_) -> {
-               p_114874_.put(NeilVariant.DEFAULT,
-                       new ResourceLocation(RustsFrogfish.MOD_ID, "textures/entity/2frogfish"));
-                p_114874_.put(NeilVariant.DULL,
-                        new ResourceLocation(RustsFrogfish.MOD_ID, "textures/entity/frogfish"));
-            });
+
 
     public NeilpeartiaRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new NeilpeartiaModel());
     }
 
-    @Override
-    public ResourceLocation getTextureLocation(NeilpeartiaEntity instance) {
-        return LOCATION_BY_VARIANT.get(instance.getVariant());
-    }
+
 
 
     //@Override
