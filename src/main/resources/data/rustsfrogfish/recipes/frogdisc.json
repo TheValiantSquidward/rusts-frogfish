@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR",
+    "RSR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "rustsfrogfish:fish_leather"
+    },
+    "S": {
+      "item": "rustsfrogfish:frogfish_lure"
+    }
+  },
+  "result": {
+    "item": "rustsfrogfish:frogdisc"
+  }
+}
