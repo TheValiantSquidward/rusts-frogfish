@@ -2,6 +2,7 @@ package net.rustandsquid.rustsfrogfish.entity.custom;
 
 import com.peeko32213.unusualprehistory.common.entity.EntityDunkleosteus;
 import com.peeko32213.unusualprehistory.common.entity.EntityTyrannosaurusRex;
+import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -21,7 +22,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import net.rustandsquid.rustsfrogfish.entity.variant.NeilVariant;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -42,11 +42,11 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> GOLDEN = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> DULLED = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> KERMIT = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
 
     public NeilpeartiaEntity(EntityType<? extends PathfinderMob> p_21683_, Level p_21684_) {
         super(p_21683_, p_21684_);
     }
-
 
 
 
@@ -91,6 +91,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
    compound.putInt("Variant", getVariant());
     compound.putBoolean("Dulled", this.isDull());
     compound.putBoolean("Golden", this.isGolden());
+       compound.putBoolean("Kermit", this.isKermit());
     }
 
     public boolean isDull() {
@@ -101,11 +102,16 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
         return this.entityData.get(GOLDEN).booleanValue();
     }
 
+    public boolean isKermit() {
+        return this.entityData.get(KERMIT).booleanValue();
+    }
+
     public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         setVariant(compound.getInt("Variant"));
         this.setDull(compound.getBoolean("Dulled"));
         this.setGolden(compound.getBoolean("Golden"));
+        this.setKermit(compound.getBoolean("Kermit"));
     }
 
     public void setGolden(boolean green) {
@@ -132,6 +138,18 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
         this.entityData.set(DULLED, green);
     }
 
+    public void setKermit(boolean green) {
+        boolean prev = isKermit();
+        if (!prev && green) {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+            this.setHealth(300.0F);
+        } else {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+        }
+        this.heal(this.getMaxHealth());
+        this.entityData.set(KERMIT, green);
+    }
+
 
     @Override
     protected void defineSynchedData() {
@@ -139,12 +157,17 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
         this.entityData.define(VARIANT, 0);
         this.entityData.define(DULLED, Boolean.valueOf(false));
         this.entityData.define(GOLDEN, Boolean.valueOf(false));
+        this.entityData.define(KERMIT, Boolean.valueOf(false));
 
     }
 
 
     public void determineVariant(int variantChange){
-        if (variantChange <= 20) {
+        if (variantChange <= 10) {
+            this.setKermit(true);
+            this.setVariant(2);
+
+        } else if (variantChange <= 30) {
             this.setDull(true);
             this.setVariant(1);
 
@@ -152,6 +175,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
             this.setGolden(true);
             this.setVariant(0);
         }
+
     }
 
 

@@ -1,0 +1,10 @@
+{
+  "frogsong": {
+    "sounds":[
+      {
+        "name": "rustsfrogfish:frogsong",
+        "stream": true
+      }
+    ]
+  }
+}

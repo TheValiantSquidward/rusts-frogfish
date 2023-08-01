@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.entity.custom.NeilpeartiaEntity;
-import net.rustandsquid.rustsfrogfish.entity.variant.NeilVariant;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.geo.render.built.GeoModel;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
@@ -20,6 +19,7 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 import java.util.Map;
 
 public class NeilpeartiaRenderer extends GeoEntityRenderer<NeilpeartiaEntity> {
+
 
 
     public NeilpeartiaRenderer(EntityRendererProvider.Context renderManager) {

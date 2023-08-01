@@ -8,13 +8,18 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class NeilpeartiaModel extends AnimatedGeoModel<NeilpeartiaEntity> {
     private static final ResourceLocation TEXTURE_DULLED = new ResourceLocation(RustsFrogfish .MOD_ID, "textures/entity/2frogfish.png");
+    private static final ResourceLocation TEXTURE_KERMIT = new ResourceLocation(RustsFrogfish .MOD_ID, "textures/entity/kermit.png");
     private static final ResourceLocation TEXTURE_GOLDEN = new ResourceLocation(RustsFrogfish .MOD_ID,"textures/entity/frogfish.png");
     private ConfigSpec entityData;
+
+
+
 
     public ResourceLocation getTextureResource(NeilpeartiaEntity object)
     {
         return switch (object.getVariant()) {
             case 1 -> TEXTURE_GOLDEN;
+            case 2 -> TEXTURE_KERMIT;
             default -> TEXTURE_DULLED;
         };
     }
