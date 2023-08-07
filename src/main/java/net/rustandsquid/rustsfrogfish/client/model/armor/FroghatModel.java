@@ -8,8 +8,7 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class FroghatModel extends AnimatedGeoModel<FroghatItem> {
     @Override
     public ResourceLocation getModelResource(FroghatItem object) {
-        return new ResourceLocation(RustsFrogfish.MOD_ID, "geo/froghat.geo.json");
-
+        return new ResourceLocation(RustsFrogfish.MOD_ID, "geo/CustomArmor.geo.json");
     }
 
     @Override
