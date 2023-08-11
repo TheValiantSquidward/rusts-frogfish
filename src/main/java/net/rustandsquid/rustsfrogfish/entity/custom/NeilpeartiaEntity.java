@@ -59,6 +59,9 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
 
     }
 
+    public boolean isPushedByFluid() {
+        return false;
+    }
     public boolean canBreatheUnderwater() {
         return true;
     }
