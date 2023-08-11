@@ -2,8 +2,6 @@ package net.rustandsquid.rustsfrogfish.entity.custom;
 
 import com.peeko32213.unusualprehistory.common.entity.EntityDunkleosteus;
 import com.peeko32213.unusualprehistory.common.entity.EntityTyrannosaurusRex;
-import net.minecraft.ChatFormatting;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -22,11 +20,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.Animation;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
@@ -34,10 +29,11 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-import static com.ibm.icu.util.ULocale.getVariant;
 
 public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
+
+
 
     private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> GOLDEN = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
@@ -48,7 +44,9 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
         super(p_21683_, p_21684_);
     }
 
-
+    public double getMeleeAttackRangeSqr(LivingEntity p_149185_) {
+        return 1.5D + (double)p_149185_.getBbWidth() * 2.0D;
+    }
 
 
     public static AttributeSupplier setAttributes() {
@@ -96,6 +94,11 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     compound.putBoolean("Golden", this.isGolden());
        compound.putBoolean("Kermit", this.isKermit());
     }
+
+
+
+
+
 
     public boolean isDull() {
         return this.entityData.get(DULLED).booleanValue();
