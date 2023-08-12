@@ -18,7 +18,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<NeilpeartiaEntity>> NEILPEARTIA =
             ENTITY_TYPES.register("nealpeartia", () -> EntityType.Builder.of(NeilpeartiaEntity::new, MobCategory.WATER_CREATURE)
                     //hitbox size
-                    .sized(1.3f, 1.3f)
+                    .sized(1.5f, 1.5f)
                     .build(new ResourceLocation(RustsFrogfish.MOD_ID, "nealpeartia").toString()));
 
 
