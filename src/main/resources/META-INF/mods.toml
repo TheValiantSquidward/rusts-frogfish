@@ -29,7 +29,7 @@ displayName="Rust's Frogfishes (Unusual Prehistory Addon)" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="examplemod.png" #optional
 # A text field displayed in the mod UI
-credits="Special thanks to Rust for the models and literally wanting this mod made and Scouter for the Unusual Prehistory code help, I couldn't have done this without them" #optional
+credits="Special thanks to Rust for the models and literally wanting this mod made and Scouter & Cody for code help, I couldn't have done this without them" #optional
 # A text field displayed in the mod UI
 authors="Big Rust and TheValiantSquidward" #optional
 # Display Test controls the display for your mod in the server connection screen
