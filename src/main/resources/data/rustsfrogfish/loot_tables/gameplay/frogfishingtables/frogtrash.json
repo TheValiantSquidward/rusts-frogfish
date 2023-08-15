@@ -7,26 +7,31 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 7,
+          "weight": 17,
           "name": "unusualprehistory:amber_shard",
           "conditions": [
             {
-              "condition": "minecraft:location_check",
-              "predicate": {
-                "biome": "minecraft:sparse_jungle"
-              }
-            },
-            {
-              "condition": "minecraft:location_check",
-              "predicate": {
-                "biome": "minecraft:bamboo_jungle"
-              }
-            },
-            {
-              "condition": "minecraft:location_check",
-              "predicate": {
-                "biome": "minecraft:jungle"
-              }
+              "condition": "minecraft:alternative",
+              "terms": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "minecraft:sparse_jungle"
+                  }
+                },
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "minecraft:bamboo_jungle"
+                  }
+                },
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "biome": "minecraft:jungle"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -37,7 +42,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 25,
+          "weight": 15,
           "name": "unusualprehistory:organic_ooze"
         },
         {
