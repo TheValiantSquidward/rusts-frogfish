@@ -7,13 +7,13 @@
       "entries": [
         {
           "type": "minecraft:loot_table",
-          "weight": 10,
+          "weight": 12,
           "quality": -2,
           "name": "rustsfrogfish:gameplay/frogfishingtables/frogtrash"
         },
         {
           "type": "minecraft:loot_table",
-          "weight": 5,
+          "weight": 3,
           "quality": 2,
           "name": "rustsfrogfish:gameplay/frogfishingtables/frogtreasure"
         },
