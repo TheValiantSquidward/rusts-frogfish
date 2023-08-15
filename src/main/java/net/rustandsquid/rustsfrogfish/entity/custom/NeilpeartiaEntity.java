@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -29,6 +30,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -45,6 +47,7 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
+    private static final ResourceLocation LOOT_TABLE = new ResourceLocation(RustsFrogfish.MOD_ID, "gameplay/frogfishing");
 
 
     private long lastSpawnTime = 0;
@@ -85,7 +88,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
         RandomSource randomsource = this.getRandom();
 
         LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerLevel)this.level)).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).withRandom(randomsource);
-        LootTable loottable = this.level.getServer().getLootTables().get(BuiltInLootTables.FISHING);
+        LootTable loottable = this.level.getServer().getLootTables().get(LOOT_TABLE);
         for (ItemStack itemstack : loottable.getRandomItems(lootcontext$builder.create(LootContextParamSets.GIFT))) {
             this.level.addFreshEntity(new ItemEntity(this.level, this.getX(), this.getY(), this.getZ(), itemstack));
         }
