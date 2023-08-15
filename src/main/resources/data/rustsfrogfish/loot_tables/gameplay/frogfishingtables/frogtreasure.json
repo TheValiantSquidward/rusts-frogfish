@@ -15,7 +15,27 @@
         },
         {
           "type": "minecraft:item",
-          "name": "unusualprehistory:amber_fossil"
+          "name": "unusualprehistory:amber_fossil",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biome": "minecraft:bamboo_jungle"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biome": "minecraft:sparse_jungle"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biome": "minecraft:jungle"
+              }
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -82,6 +102,5 @@
         }
       ]
     }
-  ],
-  "random_sequence": "minecraft:gameplay/fishing/treasure"
+  ]
 }

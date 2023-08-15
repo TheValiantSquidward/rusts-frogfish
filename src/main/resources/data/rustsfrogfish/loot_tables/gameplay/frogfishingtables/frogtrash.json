@@ -7,6 +7,31 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 7,
+          "name": "unusualprehistory:amber_shard",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biome": "minecraft:sparse_jungle"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biome": "minecraft:bamboo_jungle"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biome": "minecraft:jungle"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
           "weight": 10,
           "name": "unusualprehistory:plant_fossil"
         },
@@ -32,7 +57,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 17,
+          "weight": 10,
           "name": "minecraft:lily_pad"
         },
         {
