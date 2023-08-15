@@ -9,19 +9,19 @@
           "type": "minecraft:loot_table",
           "weight": 10,
           "quality": -2,
-          "name": "rustsfrogfish:loot_tables/gameplay/fishing/frogtrash"
+          "name": "rustsfrogfish:loot_tables/gameplay/frogfishingtables/frogtrash"
         },
         {
           "type": "minecraft:loot_table",
           "weight": 5,
           "quality": 2,
-          "name": "rustsfrogfish:loot_tables/gameplay/fishing/frogtreasure"
+          "name": "rustsfrogfish:loot_tables/gameplay/frogfishingtables/frogtreasure"
         },
         {
           "type": "minecraft:loot_table",
           "weight": 85,
           "quality": -1,
-          "name": "rustsfrogfish:loot_tables/gameplay/fishing/frogfishfish"
+          "name": "rustsfrogfish:loot_tables/gameplay/frogfishingtables/frogfishfish"
         }
       ]
     }

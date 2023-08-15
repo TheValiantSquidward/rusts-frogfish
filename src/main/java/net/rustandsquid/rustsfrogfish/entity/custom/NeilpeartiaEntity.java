@@ -2,20 +2,16 @@ package net.rustandsquid.rustsfrogfish.entity.custom;
 
 import com.peeko32213.unusualprehistory.common.entity.EntityDunkleosteus;
 import com.peeko32213.unusualprehistory.common.entity.EntityTyrannosaurusRex;
-import com.peeko32213.unusualprehistory.core.registry.UPItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -29,11 +25,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.loot.LootTable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -44,9 +38,8 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-import java.util.Objects;
 
-import static net.minecraft.data.BuiltinRegistries.register;
+
 
 
 
@@ -54,7 +47,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
 
-
+    private long lastSpawnTime = 0;
     private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> GOLDEN = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> DULLED = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
@@ -67,6 +60,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     }
 
 
+    private final long spawnInterval = 200; // Adjust this value as needed
 
     @Override
     public void tick() {
@@ -77,27 +71,28 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
         }
 
         if (isInWater()) {
-            if (shouldSpawnItem()) {
+            long currentTime = level.getGameTime();
+            long timeSinceLastSpawn = currentTime - lastSpawnTime;
+
+            if (timeSinceLastSpawn >= spawnInterval) {
                 spawnRandomItems();
+                lastSpawnTime = currentTime;
             }
         }
     }
-    private boolean shouldSpawnItem() {
-        return true;
-
-    }
-
 
     private void spawnRandomItems() {
         RandomSource randomsource = this.getRandom();
-        LootTable loottable = this.level.getServer().getLootTables().get(BuiltInLootTables.CAT_MORNING_GIFT);
-        LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerLevel)this.level)).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).withRandom(randomsource);
 
+        LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerLevel)this.level)).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).withRandom(randomsource);
+        LootTable loottable = this.level.getServer().getLootTables().get(BuiltInLootTables.FISHING);
         for (ItemStack itemstack : loottable.getRandomItems(lootcontext$builder.create(LootContextParamSets.GIFT))) {
             this.level.addFreshEntity(new ItemEntity(this.level, this.getX(), this.getY(), this.getZ(), itemstack));
         }
         this.playSound(SoundEvents.FISHING_BOBBER_SPLASH);
+
     }
+
 
 
 
