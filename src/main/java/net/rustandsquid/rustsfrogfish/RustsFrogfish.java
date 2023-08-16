@@ -19,12 +19,15 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.rustandsquid.rustsfrogfish.block.ModBlocks;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
 import net.rustandsquid.rustsfrogfish.entity.client.NeilpeartiaRenderer;
+import net.rustandsquid.rustsfrogfish.entity.client.armor.FroghatModel;
+import net.rustandsquid.rustsfrogfish.entity.client.armor.FroghatRenderer;
 import net.rustandsquid.rustsfrogfish.item.ModItems;
 import net.rustandsquid.rustsfrogfish.potion.ModPotions;
 import net.rustandsquid.rustsfrogfish.util.HahaSuperBrewer;
 import net.rustandsquid.rustsfrogfish.sound.ModSounds;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 import java.util.Locale;
 
@@ -57,6 +60,7 @@ public class RustsFrogfish {
     {
 
     }
+
 
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(MOD_ID, name.toLowerCase(Locale.ROOT));

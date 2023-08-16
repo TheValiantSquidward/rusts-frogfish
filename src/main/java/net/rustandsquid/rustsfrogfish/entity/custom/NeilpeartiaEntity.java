@@ -62,7 +62,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     }
 
 
-    private final long spawnInterval = 20000;
+    private final long spawnInterval = 22222;
     @Override
     public void tick() {
         super.tick();
