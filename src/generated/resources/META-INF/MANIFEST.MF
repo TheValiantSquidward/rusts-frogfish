@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: C:\Users\dukew\Downloads\Rusty's Frogfishes (Unusual Prehist
+ ory Addon)\src\main\java\net\rustandsquid\rustsfrogfish\RustsFrogfish.j
+ ava
+
