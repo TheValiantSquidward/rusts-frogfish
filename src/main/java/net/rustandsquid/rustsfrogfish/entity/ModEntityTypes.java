@@ -16,10 +16,17 @@ public class ModEntityTypes {
 
 
     public static final RegistryObject<EntityType<NeilpeartiaEntity>> NEILPEARTIA =
-            ENTITY_TYPES.register("nealpeartia", () -> EntityType.Builder.of(NeilpeartiaEntity::new, MobCategory.WATER_CREATURE)
+            ENTITY_TYPES.register("neilpeartia", () -> EntityType.Builder.of(NeilpeartiaEntity::new, MobCategory.WATER_CREATURE)
                     //hitbox size
                     .sized(1.5f, 1.5f)
-                    .build(new ResourceLocation(RustsFrogfish.MOD_ID, "nealpeartia").toString()));
+                    .build(new ResourceLocation(RustsFrogfish.MOD_ID, "neilpeartia").toString()));
+
+
+    public static final RegistryObject<EntityType<NeilpeartiaEntity>> GIGANHINGA =
+            ENTITY_TYPES.register("giganhinga", () -> EntityType.Builder.of(NeilpeartiaEntity::new, MobCategory.CREATURE)
+                    //hitbox size
+                    .sized(1.0f, 1.0f)
+                    .build(new ResourceLocation(RustsFrogfish.MOD_ID, "giganhinga").toString()));
 
 
     public static void register(IEventBus eventBus) {

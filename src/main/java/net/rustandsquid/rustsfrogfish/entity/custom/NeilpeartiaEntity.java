@@ -40,10 +40,6 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 
-
-
-
-
 public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     private static final ResourceLocation LOOT_TABLE = new ResourceLocation(RustsFrogfish.MOD_ID, "gameplay/frogfishing");
@@ -114,14 +110,14 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
 
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
+        this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
         this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, EntityDunkleosteus.class, 8.0F, 1.6D, 1.4D, EntitySelector.NO_SPECTATORS::test));
         this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, EntityTyrannosaurusRex.class, 8.0F, 1.6D, 1.4D, EntitySelector.NO_SPECTATORS::test));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
-        this.goalSelector.addGoal(2, new RandomSwimmingGoal(this, 0.7D, 1));
-        this.goalSelector.addGoal(2, new RandomStrollGoal(this, 0.7D, 15));
+        this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers());
+        this.goalSelector.addGoal(5, new RandomSwimmingGoal(this, 0.7D, 1));
+        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 0.7D, 15));
     }
 
 
@@ -278,8 +274,6 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
     }
 
     protected float getSoundVolume() {
-        return 0.2F;
+        return 0.4F;
     }
 }
-
-
