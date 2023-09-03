@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "peculiarprimordials:raw_giganhinga"
+  },
+  "result": "peculiarprimordials:roast_giganhinga",
+  "experience": 0.2,
+  "cookingtime": 300
+}

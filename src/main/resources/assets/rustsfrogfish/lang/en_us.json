@@ -1,13 +1,24 @@
 {
+  "itemGroup.rustfrogfishtab": "Peculiar Primordials",
+
   "item.rustsfrogfish.neilpeartia_spawn_egg" : "Neilpeartia Spawn Egg",
+  "item.rustsfrogfish.giganhinga_spawn_egg" : "Giganhinga Spawn Egg",
+
   "item.rustsfrogfish.raw_frogfish" : "Raw Neilpeartia",
+  "item.rustsfrogfish.raw_giganhinga" : "Raw Giganhinga",
+  "item.rustsfrogfish.roast_giganhinga" : "Roast Giganhinga",
+
   "item.rustsfrogfish.fish_leather" : "Fish Leather",
   "item.rustsfrogfish.frogfish_lure" : "Shed Lure",
+
   "block.rustsfrogfish.neilpeartia_eggs" : "Neilpeartia Eggs",
-  "itemGroup.rustfrogfishtab": "Peculiar Primordials",
+
   "item.rustsfrogfish.neilpeartia_dna" : "Neilpeartia DNA Flask",
+  "item.rustsfrogfish.giganhinga_dna" : "Giganhinga DNA Flask",
+
   "item.rustsfrogfish.frogdisc" : "Music Disc",
   "item.rustsfrogfish.frogdisc.desc" : "TheValiantSquidward - Alluring Symphony",
+
   "item.rustsfrogfish.froghat" : "Lure Adorned Cap",
 
   "item.minecraft.potion.effect.glow_potion": "Potion of Glowing",

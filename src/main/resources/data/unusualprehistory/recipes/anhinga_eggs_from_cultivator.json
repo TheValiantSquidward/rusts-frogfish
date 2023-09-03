@@ -1,0 +1,11 @@
+{
+  "type": "unusualprehistory:cultivator",
+  "ingredients": [
+    {
+      "item": "rustsfrogfish:giganhinga_dna"
+    }
+  ],
+  "output": {
+    "item": "rustsfrogfish:neilpeartia_eggs"
+  }
+}
