@@ -1,6 +1,7 @@
 package net.rustandsquid.rustsfrogfish.block;
 
 import com.peeko32213.unusualprehistory.UnusualPrehistory;
+import com.peeko32213.unusualprehistory.common.block.BlockDinosaurLandEggs;
 import com.peeko32213.unusualprehistory.common.block.BlockDinosaurWaterEggs;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -58,6 +59,14 @@ public class ModBlocks {
                     false
             ),
             entry -> new PlaceOnWaterBlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
+
+    public static final Supplier<Block> GIGANHINGA_EGGS = create("giganhinga_eggs",
+            () -> new BlockDinosaurLandEggs(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS).instabreak().noOcclusion().noCollission().randomTicks(),
+                    ModEntityTypes.GIGANHINGA,
+                    4
+            ),
+            entry -> new BlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
+
 
 
     public static void register(IEventBus eventBus){

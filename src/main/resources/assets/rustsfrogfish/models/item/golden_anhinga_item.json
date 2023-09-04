@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "rustsfrogfish:item/anhinga/golden_anhinga_egg"
+  }
+}

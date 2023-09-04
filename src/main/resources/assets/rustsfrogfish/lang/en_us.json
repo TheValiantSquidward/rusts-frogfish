@@ -12,12 +12,15 @@
   "item.rustsfrogfish.frogfish_lure" : "Shed Lure",
 
   "block.rustsfrogfish.neilpeartia_eggs" : "Neilpeartia Eggs",
+  "block.rustsfrogfish.giganhinga_eggs" : "Giganhinga Eggs",
 
   "item.rustsfrogfish.neilpeartia_dna" : "Neilpeartia DNA Flask",
   "item.rustsfrogfish.giganhinga_dna" : "Giganhinga DNA Flask",
 
   "item.rustsfrogfish.frogdisc" : "Music Disc",
   "item.rustsfrogfish.frogdisc.desc" : "TheValiantSquidward - Alluring Symphony",
+  "item.rustsfrogfish.throwable_anhinga_egg" : "Infertile Giganhinga Egg",
+  "item.rustsfrogfish.golden_anhinga_item" : "Golden Giganhinga Egg",
 
   "item.rustsfrogfish.froghat" : "Lure Adorned Cap",
 

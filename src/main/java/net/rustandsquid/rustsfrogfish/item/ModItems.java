@@ -74,6 +74,10 @@ public class ModItems {
     //usable items
     public static final RegistryObject<Item> THROWABLEEGGITEM = ITEMS.register("throwable_anhinga_egg",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+    public static final RegistryObject<Item> GOLDENEGGITEM = ITEMS.register("golden_anhinga_item",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+
+
 
     public static void register(IEventBus eventBus) { ITEMS.register(eventBus); }
 
