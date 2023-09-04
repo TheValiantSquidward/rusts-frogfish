@@ -1,9 +1,9 @@
 {
   "type": "minecraft:campfire_cooking",
   "ingredient": {
-    "item": "peculiarprimordials:raw_giganhinga"
+    "item": "rustsfrogfish:raw_giganhinga"
   },
-  "result": "peculiarprimordials:roast_giganhinga",
+  "result": "rustsfrogfish:roast_giganhinga",
   "experience": 0.45,
   "cookingtime": 600
 }

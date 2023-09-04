@@ -13,7 +13,7 @@ public class GiganhingaModel extends AnimatedGeoModel<GiganhingaEntity> {
 
     @Override
     public ResourceLocation getTextureResource(GiganhingaEntity object) {
-        return new ResourceLocation(RustsFrogfish.MOD_ID, "textures/entity/2frogfish.png.json");
+        return new ResourceLocation(RustsFrogfish.MOD_ID, "textures/entity/anhingatexture.png");
     }
 
     @Override

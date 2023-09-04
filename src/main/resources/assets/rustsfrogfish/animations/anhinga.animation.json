@@ -184,7 +184,7 @@
 		},
 		"animation.model.idle": {
 			"loop": true,
-			"animation_length": 5.45833,
+			"animation_length": 4,
 			"bones": {
 				"bone2": {
 					"rotation": {
