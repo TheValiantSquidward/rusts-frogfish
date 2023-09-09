@@ -1,21 +1,38 @@
 package net.rustandsquid.rustsfrogfish.item.custom;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.entity.projectile.ThrownExperienceBottle;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.HitResult;
+import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
+import net.rustandsquid.rustsfrogfish.item.ModItems;
 
-public class ThrowableEggItem extends Item {
-    public ThrowableEggItem(Properties pProperties) {
+import java.util.Random;
+
+public class ThrowableGoldenEggItem extends Item {
+    public ThrowableGoldenEggItem(Item.Properties pProperties) {
         super(pProperties);
     }
 
+
+    public boolean isFoil(ItemStack pStack) {
+        return true;
+    }
 
 
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {

@@ -1,4 +1,16 @@
+
+
 {
+  "anhingahurt": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "rustsfrogfish:anhinaghurt"
+      }
+    ],
+    "subtitle": "unusualprehistory.sound.subtitle.majunga_hurt"
+  },
+
   "frogsong": {
     "sounds":[
       {

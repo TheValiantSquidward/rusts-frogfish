@@ -18,7 +18,7 @@
   "item.rustsfrogfish.giganhinga_dna" : "Giganhinga DNA Flask",
 
   "item.rustsfrogfish.frogdisc" : "Music Disc",
-  "item.rustsfrogfish.frogdisc.desc" : "TheValiantSquidward - Alluring Symphony",
+  "item.rustsfrogfish.frogdisc.desc" : "TheValiantSquidward - Lure",
   "item.rustsfrogfish.throwable_anhinga_egg" : "Infertile Giganhinga Egg",
   "item.rustsfrogfish.golden_anhinga_item" : "Golden Giganhinga Egg",
 
@@ -27,6 +27,5 @@
   "item.minecraft.potion.effect.glow_potion": "Potion of Glowing",
   "item.minecraft.splash_potion.effect.glow_potion": "Splash Potion of Glowing",
   "item.minecraft.lingering_potion.effect.glow_potion": "Lingering Potion of Glowing"
-
 
 }

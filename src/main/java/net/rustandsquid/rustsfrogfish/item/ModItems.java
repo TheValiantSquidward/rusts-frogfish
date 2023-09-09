@@ -12,6 +12,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
+import net.rustandsquid.rustsfrogfish.item.custom.ThrowableEggItem;
+import net.rustandsquid.rustsfrogfish.item.custom.ThrowableGoldenEggItem;
 import net.rustandsquid.rustsfrogfish.sound.ModSounds;
 
 public class ModItems {
@@ -73,8 +75,10 @@ public class ModItems {
 
     //usable items
     public static final RegistryObject<Item> THROWABLEEGGITEM = ITEMS.register("throwable_anhinga_egg",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+            () -> new ThrowableEggItem(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
     public static final RegistryObject<Item> GOLDENEGGITEM = ITEMS.register("golden_anhinga_item",
+            () -> new ThrowableGoldenEggItem(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+    public static final RegistryObject<Item> GIGANHINGATAXIDERMY = ITEMS.register("taxidermied_anhinga",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
 

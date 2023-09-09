@@ -15,7 +15,6 @@ public class GiganhingaRenderer extends GeoEntityRenderer<GiganhingaEntity> {
     public GiganhingaRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new GiganhingaModel());
     }
-
     @Override
     public RenderType getRenderType(GiganhingaEntity animatable, float partialTicks, PoseStack stack, @Nullable MultiBufferSource renderTypeBuffer, @Nullable VertexConsumer vertexBuilder, int packedLightIn, ResourceLocation textureLocation) {
         return RenderType.entityTranslucent(textureLocation);

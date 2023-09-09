@@ -84,7 +84,15 @@
 						"vector": [0, "math.cos((query.anim_time - 0.5)* 180)*2", "math.cos((query.anim_time - 0.5)* 180)*2"]
 					},
 					"position": {
-						"vector": [0, 0, "math.cos((query.anim_time - 0.)* 180)*1"]
+						"0.0": {
+							"vector": [0, -17, "math.cos((query.anim_time - 0.)* 180)*1"]
+						},
+						"0.625": {
+							"vector": [0, -15, "math.cos((query.anim_time - 0.)* 180)*1"]
+						},
+						"2.0": {
+							"vector": [0, -17, "math.cos((query.anim_time - 0.)* 180)*1"]
+						}
 					}
 				}
 			}

@@ -15,7 +15,11 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> FROGSONG = registerSoundEvent("frogsong");
 
+    public static final RegistryObject<SoundEvent> ANHINGADEATH = registerSoundEvent("anhingadeath1");
 
+    public static final RegistryObject<SoundEvent> ANHINGAIDLE = registerSoundEvent("anhingaidle1");
+
+    public static final RegistryObject<SoundEvent> ANHINGAHURT = registerSoundEvent("anhingahurt1");
 
 private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
     return SOUND_EVENTS.register(name, () -> new SoundEvent(new ResourceLocation(RustsFrogfish.MOD_ID, name)));

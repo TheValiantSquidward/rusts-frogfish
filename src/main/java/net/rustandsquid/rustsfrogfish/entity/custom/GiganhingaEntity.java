@@ -2,7 +2,11 @@ package net.rustandsquid.rustsfrogfish.entity.custom;
 
 import com.peeko32213.unusualprehistory.common.entity.EntityDunkleosteus;
 import com.peeko32213.unusualprehistory.common.entity.EntityTyrannosaurusRex;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -14,6 +18,8 @@ import net.minecraft.world.entity.animal.Salmon;
 import net.minecraft.world.entity.animal.Squid;
 import net.minecraft.world.entity.monster.Drowned;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.rustandsquid.rustsfrogfish.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -51,16 +57,42 @@ public class GiganhingaEntity extends Animal implements IAnimatable {
         this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Salmon.class, true));
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().loop("animation.model.walk"));
-            return PlayState.CONTINUE;
-        } else
-            event.getController().setAnimation(new AnimationBuilder().loop("animation.model.idle"));
-        return PlayState.CONTINUE;
 
+        private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+            if (this.getDeltaMovement().horizontalDistanceSqr() > 1.0E-6 && !this.isSwimming()) {
+                {
+                    event.getController().setAnimation(new AnimationBuilder().loop("animation.model.walk"));
+                    return PlayState.CONTINUE;
+                }
+            }
+            if (this.isInWater()) {
+                event.getController().setAnimation(new AnimationBuilder().loop("animation.model.floatswim"));
+                event.getController().setAnimationSpeed(1.0F);
+                return PlayState.CONTINUE;
+            }
+            else {
+                event.getController().setAnimation(new AnimationBuilder().loop("animation.model.idle"));
+                event.getController().setAnimationSpeed(1.0D);
+            }
+            return PlayState.CONTINUE;
     }
 
+//sounds
+protected SoundEvent getAmbientSound() {
+    return ModSounds.ANHINGAIDLE.get();
+}
+
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+        return ModSounds.ANHINGAHURT.get();
+    }
+
+    protected SoundEvent getDeathSound() {
+        return ModSounds.ANHINGADEATH.get();
+    }
+
+    protected void playStepSound(BlockPos p_28301_, BlockState p_28302_) {
+        this.playSound(SoundEvents.CHICKEN_STEP, 0.1F, 1.0F);
+    }
 
     @Override
     public void registerControllers(AnimationData data) {

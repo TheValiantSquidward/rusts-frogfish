@@ -2,6 +2,7 @@ package net.rustandsquid.rustsfrogfish.entity.custom;
 
 import com.peeko32213.unusualprehistory.common.entity.EntityDunkleosteus;
 import com.peeko32213.unusualprehistory.common.entity.EntityTyrannosaurusRex;
+import com.peeko32213.unusualprehistory.common.entity.msc.util.dino.EntityBaseDinosaurAnimal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -11,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -30,6 +32,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -40,7 +43,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 
-public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
+public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     private static final ResourceLocation LOOT_TABLE = new ResourceLocation(RustsFrogfish.MOD_ID, "gameplay/frogfishing");
 
@@ -53,7 +56,7 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
 
 
 
-    public NeilpeartiaEntity(EntityType<? extends PathfinderMob> p_21683_, Level p_21684_) {
+    public NeilpeartiaEntity(EntityType<? extends EntityBaseDinosaurAnimal> p_21683_, Level p_21684_) {
         super(p_21683_, p_21684_);
     }
 
@@ -76,6 +79,51 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
                 lastSpawnTime = currentTime;
             }
         }
+    }
+
+    @Override
+    protected SoundEvent getAttackSound() {
+        return null;
+    }
+
+    @Override
+    protected int getKillHealAmount() {
+        return 0;
+    }
+
+    @Override
+    protected boolean canGetHungry() {
+        return false;
+    }
+
+    @Override
+    protected boolean hasTargets() {
+        return false;
+    }
+
+    @Override
+    protected boolean hasAvoidEntity() {
+        return false;
+    }
+
+    @Override
+    protected boolean hasCustomNavigation() {
+        return false;
+    }
+
+    @Override
+    protected boolean hasMakeStuckInBlock() {
+        return false;
+    }
+
+    @Override
+    protected boolean customMakeStuckInBlockCheck(BlockState blockState) {
+        return false;
+    }
+
+    @Override
+    protected TagKey<EntityType<?>> getTargetTag() {
+        return null;
     }
 
     private void spawnRandomItems() {
@@ -237,6 +285,12 @@ public class NeilpeartiaEntity extends PathfinderMob implements IAnimatable {
         int variantChange = this.random.nextInt(0, 100);
         this.determineVariant(variantChange);
         return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
+    }
+
+    @Nullable
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
+        return null;
     }
 
     @Override

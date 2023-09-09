@@ -53,7 +53,8 @@ public class RustsFrogfish {
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        BrewingRecipeRegistry.addRecipe(new HahaSuperBrewer(Potions.AWKWARD,
+                ModItems.RAW_FROGFISH.get(), ModPotions.GLOW_POTION.get()));
     }
 
 
@@ -74,8 +75,6 @@ public class RustsFrogfish {
                     (ModEntityTypes.GIGANHINGA.get(), GiganhingaRenderer::new);
 
 
-            BrewingRecipeRegistry.addRecipe(new HahaSuperBrewer(Potions.AWKWARD,
-                    ModItems.RAW_FROGFISH.get(), ModPotions.GLOW_POTION.get()));
         }
     }
 }
