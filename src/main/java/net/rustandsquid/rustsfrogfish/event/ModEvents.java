@@ -7,9 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
 import net.rustandsquid.rustsfrogfish.entity.client.armor.FroghatRenderer;
-import net.rustandsquid.rustsfrogfish.entity.custom.Froghat;
-import net.rustandsquid.rustsfrogfish.entity.custom.GiganhingaEntity;
-import net.rustandsquid.rustsfrogfish.entity.custom.NeilpeartiaEntity;
+import net.rustandsquid.rustsfrogfish.entity.custom.*;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 public class ModEvents {
@@ -25,6 +23,7 @@ public class ModEvents {
         public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
             event.put(ModEntityTypes.NEILPEARTIA.get(), NeilpeartiaEntity.setAttributes());
             event.put(ModEntityTypes.GIGANHINGA.get(), GiganhingaEntity.setAttributes());
+            event.put(ModEntityTypes.BLOCHIUS.get(), BlochiusEntity.setAttributes());
         }
 
         @SubscribeEvent

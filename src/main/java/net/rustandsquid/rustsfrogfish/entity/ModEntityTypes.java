@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
+import net.rustandsquid.rustsfrogfish.entity.custom.BlochiusEntity;
 import net.rustandsquid.rustsfrogfish.entity.custom.GiganhingaEntity;
 import net.rustandsquid.rustsfrogfish.entity.custom.InfertileEggEntity;
 import net.rustandsquid.rustsfrogfish.entity.custom.NeilpeartiaEntity;
@@ -30,6 +31,12 @@ public class ModEntityTypes {
                     //hitbox size
                     .sized(1.0f, 1.0f)
                     .build(new ResourceLocation(RustsFrogfish.MOD_ID, "giganhinga").toString()));
+
+    public static final RegistryObject<EntityType<BlochiusEntity>> BLOCHIUS =
+            ENTITY_TYPES.register("blochius", () -> EntityType.Builder.of(BlochiusEntity::new, MobCategory.WATER_AMBIENT)
+                    //hitbox size
+                    .sized(1.0f, 1.0f)
+                    .build(new ResourceLocation(RustsFrogfish.MOD_ID, "blochius").toString()));
 
     public static final RegistryObject<EntityType<InfertileEggEntity>> INFERTILEEGG =
             ENTITY_TYPES.register("infertile_egg", () -> EntityType.Builder.of(InfertileEggEntity::new, MobCategory.MISC)

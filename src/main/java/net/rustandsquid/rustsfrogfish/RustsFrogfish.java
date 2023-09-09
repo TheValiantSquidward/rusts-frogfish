@@ -15,6 +15,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.rustandsquid.rustsfrogfish.block.ModBlocks;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
+import net.rustandsquid.rustsfrogfish.entity.client.BlochiusModel;
+import net.rustandsquid.rustsfrogfish.entity.client.BlochiusRenderer;
 import net.rustandsquid.rustsfrogfish.entity.client.GiganhingaRenderer;
 import net.rustandsquid.rustsfrogfish.entity.client.NeilpeartiaRenderer;
 import net.rustandsquid.rustsfrogfish.item.ModItems;
@@ -62,7 +64,6 @@ public class RustsFrogfish {
         return new ResourceLocation(MOD_ID, name.toLowerCase(Locale.ROOT));
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
@@ -73,6 +74,8 @@ public class RustsFrogfish {
                     (ModEntityTypes.NEILPEARTIA.get(), NeilpeartiaRenderer::new);
             EntityRenderers.register
                     (ModEntityTypes.GIGANHINGA.get(), GiganhingaRenderer::new);
+            EntityRenderers.register
+                    (ModEntityTypes.BLOCHIUS.get(), BlochiusRenderer::new);
 
 
         }
