@@ -1,0 +1,11 @@
+{
+  "type": "unusualprehistory:cultivator",
+  "ingredients": [
+    {
+      "item": "rustsfrogfish:ensete_oregonese_dna"
+    }
+  ],
+  "output": {
+    "item": "rustsfrogfish:stony_seeds"
+  }
+}

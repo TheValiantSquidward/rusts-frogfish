@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:bone"
+    },
+    "X": {
+      "item": "rustsfrogfish:gilded_crest"
+    },
+    "P": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    " P#",
+    "X#P",
+    " X "
+  ],
+  "result": {
+    "item": "rustsfrogfish:gilded_horn"
+  }
+}

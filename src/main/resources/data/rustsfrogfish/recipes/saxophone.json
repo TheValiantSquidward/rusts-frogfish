@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:bone"
+    },
+    "X": {
+      "item": "rustsfrogfish:flamboyant_crest"
+    },
+    "P": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    "  X",
+    "X# ",
+    "P# "
+  ],
+  "result": {
+    "item": "rustsfrogfish:flamboyant_saxophone"
+  }
+}

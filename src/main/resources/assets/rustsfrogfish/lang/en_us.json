@@ -1,21 +1,34 @@
 {
   "itemGroup.rustfrogfishtab": "Peculiar Primordials",
 
+  "item.rustsfrogfish.seedy_remains" : "Seedy Remains",
+
   "item.rustsfrogfish.neilpeartia_spawn_egg" : "Neilpeartia Spawn Egg",
   "item.rustsfrogfish.giganhinga_spawn_egg" : "Giganhinga Spawn Egg",
 
   "item.rustsfrogfish.raw_frogfish" : "Raw Neilpeartia",
   "item.rustsfrogfish.raw_giganhinga" : "Raw Giganhinga",
   "item.rustsfrogfish.roast_giganhinga" : "Roast Giganhinga",
+  "item.rustsfrogfish.starchy_redroots" : "Starchy Redroots",
+  "item.rustsfrogfish.stony_seeds" : "Stony Seeds",
+  "item.rustsfrogfish.ensete_oregonese_fruit" : "Ensete Oregonese Fruit",
+  "item.rustsfrogfish.raw_blochius" : "Raw Blochius",
 
   "item.rustsfrogfish.fish_leather" : "Fish Leather",
   "item.rustsfrogfish.frogfish_lure" : "Shed Lure",
+  "item.rustsfrogfish.gilded_crest" : "Gilded Crest",
+  "item.rustsfrogfish.flamboyant_crest" : "Flamboyant Crest",
+  "item.rustsfrogfish.elegant_crest" : "Elegant Crest",
+  "item.rustsfrogfish.fish_bone" : "Fish Bone",
 
   "block.rustsfrogfish.neilpeartia_eggs" : "Neilpeartia Eggs",
   "block.rustsfrogfish.giganhinga_eggs" : "Giganhinga Eggs",
 
   "item.rustsfrogfish.neilpeartia_dna" : "Neilpeartia DNA Flask",
   "item.rustsfrogfish.giganhinga_dna" : "Giganhinga DNA Flask",
+  "item.rustsfrogfish.tapejara_dna" : "Tapejara DNA Flask",
+  "item.rustsfrogfish.ensete_oregonese_dna" : "Ensete Oregonese DNA Flask",
+  "item.rustsfrogfish.blochius_dna" : "Blochius DNA Flask",
 
   "item.rustsfrogfish.frogdisc" : "Music Disc",
   "item.rustsfrogfish.frogdisc.desc" : "TheValiantSquidward - Lure",
@@ -23,9 +36,11 @@
   "item.rustsfrogfish.golden_anhinga_item" : "Golden Giganhinga Egg",
 
   "item.rustsfrogfish.froghat" : "Lure Adorned Cap",
+  "item.rustsfrogfish.gilded_horn" : "Gilded Horn",
+  "item.rustsfrogfish.flamboyant_saxophone" : "Flamboyant Saxophone",
+  "item.rustsfrogfish.elegant_flute" : "Elegant Flute",
 
   "item.minecraft.potion.effect.glow_potion": "Potion of Glowing",
   "item.minecraft.splash_potion.effect.glow_potion": "Splash Potion of Glowing",
   "item.minecraft.lingering_potion.effect.glow_potion": "Lingering Potion of Glowing"
-
 }
