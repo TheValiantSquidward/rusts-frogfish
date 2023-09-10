@@ -24,6 +24,7 @@ public class ModEvents {
             event.put(ModEntityTypes.NEILPEARTIA.get(), NeilpeartiaEntity.setAttributes());
             event.put(ModEntityTypes.GIGANHINGA.get(), GiganhingaEntity.setAttributes());
             event.put(ModEntityTypes.BLOCHIUS.get(), BlochiusEntity.setAttributes());
+            event.put(ModEntityTypes.TAPEJARA.get(), TapejaraEntity.setAttributes());
         }
 
         @SubscribeEvent

@@ -9,10 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
-import net.rustandsquid.rustsfrogfish.entity.custom.BlochiusEntity;
-import net.rustandsquid.rustsfrogfish.entity.custom.GiganhingaEntity;
-import net.rustandsquid.rustsfrogfish.entity.custom.InfertileEggEntity;
-import net.rustandsquid.rustsfrogfish.entity.custom.NeilpeartiaEntity;
+import net.rustandsquid.rustsfrogfish.entity.custom.*;
 
 public class ModEntityTypes {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
@@ -37,6 +34,12 @@ public class ModEntityTypes {
                     //hitbox size
                     .sized(1.0f, 1.0f)
                     .build(new ResourceLocation(RustsFrogfish.MOD_ID, "blochius").toString()));
+
+    public static final RegistryObject<EntityType<TapejaraEntity>> TAPEJARA =
+            ENTITY_TYPES.register("tapejara", () -> EntityType.Builder.of(TapejaraEntity::new, MobCategory.CREATURE)
+                    //hitbox size
+                    .sized(5.0f, 5.0f)
+                    .build(new ResourceLocation(RustsFrogfish.MOD_ID, "tapejara").toString()));
 
     public static final RegistryObject<EntityType<InfertileEggEntity>> INFERTILEEGG =
             ENTITY_TYPES.register("infertile_egg", () -> EntityType.Builder.of(InfertileEggEntity::new, MobCategory.MISC)

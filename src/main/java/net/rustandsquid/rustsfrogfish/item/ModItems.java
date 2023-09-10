@@ -20,21 +20,19 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, RustsFrogfish.MOD_ID);
 
-    //fossils
-    public static final RegistryObject<Item> SEEDY_REMAINS = ITEMS.register("seedy_remains",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+
 
     //dna vials
     public static final RegistryObject<Item> NEILPEARTIA_VIAL = ITEMS.register("neilpeartia_dna",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+
+    public static final RegistryObject<Item> BLOCHIUS_VIAL = ITEMS.register("blochius_dna",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
     public static final RegistryObject<Item> GIGANHINGA_VIAL = ITEMS.register("giganhinga_dna",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
     public static final RegistryObject<Item> TAPEJARA_VIAL = ITEMS.register("tapejara_dna",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
-
-    public static final RegistryObject<Item> BLOCHIUS_VIAL = ITEMS.register("blochius_dna",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
     public static final RegistryObject<Item> ENSETE_VIAL = ITEMS.register("ensete_oregonese_dna",
@@ -45,6 +43,12 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)
                     .food(new FoodProperties.Builder().nutrition(1).saturationMod(1)
                             .effect(() -> new MobEffectInstance(MobEffects.CONFUSION,200, 0), 1f)
+                            .build())
+            ));
+
+    public static final RegistryObject<Item> RAW_BLOCHIUS = ITEMS.register("raw_blochius",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)
+                    .food(new FoodProperties.Builder().nutrition(3).saturationMod(2)
                             .build())
             ));
 
@@ -61,14 +65,15 @@ public class ModItems {
                             .build())
             ));
 
+
+    public static final RegistryObject<Item> STONY_SEEDS = ITEMS.register("stony_seeds",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+
     public static final RegistryObject<Item> PURPLE_BANANA = ITEMS.register("ensete_oregonese_fruit",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)
                     .food(new FoodProperties.Builder().nutrition(5).saturationMod(7)
                             .build())
             ));
-
-    public static final RegistryObject<Item> STONY_SEEDS = ITEMS.register("stony_seeds",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
     public static final RegistryObject<Item> STARCHY_REDROOTS = ITEMS.register("starchy_redroots",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)
@@ -76,14 +81,13 @@ public class ModItems {
                             .build())
             ));
 
-    public static final RegistryObject<Item> RAW_BLOCHIUS = ITEMS.register("raw_blochius",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)
-                    .food(new FoodProperties.Builder().nutrition(3).saturationMod(2)
-                            .build())
-            ));
+
 
     //crafting items
     public static final RegistryObject<Item> FROGFISH_LURE = ITEMS.register("frogfish_lure",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+
+    public static final RegistryObject<Item> FISH_LEATHER = ITEMS.register("fish_leather",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
     public static final RegistryObject<Item> FISH_BONE = ITEMS.register("fish_bone",
@@ -96,9 +100,6 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
     public static final RegistryObject<Item> ELEGANT_CREST = ITEMS.register("elegant_crest",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
-
-    public static final RegistryObject<Item> FISH_LEATHER = ITEMS.register("fish_leather",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
     //weapons and armor
@@ -127,13 +128,19 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.GIGANHINGA, 0x2f3c42, 0x805746,
                     new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
+    public static final RegistryObject<Item> BLOCHIUSSPAWNEGG = ITEMS.register( "blochius_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.BLOCHIUS, 0x9bcfe9, 0x0b3042,
+                    new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+
     //usable items
     public static final RegistryObject<Item> THROWABLEEGGITEM = ITEMS.register("throwable_anhinga_egg",
             () -> new ThrowableEggItem(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
     public static final RegistryObject<Item> GOLDENEGGITEM = ITEMS.register("golden_anhinga_item",
             () -> new ThrowableGoldenEggItem(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
-
+    //fossils
+    public static final RegistryObject<Item> SEEDY_REMAINS = ITEMS.register("seedy_remains",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
 
     public static void register(IEventBus eventBus) { ITEMS.register(eventBus); }
