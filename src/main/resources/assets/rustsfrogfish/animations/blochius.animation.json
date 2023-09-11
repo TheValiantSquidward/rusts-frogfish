@@ -10,7 +10,7 @@
 						"vector": ["math.sin(query.anim_time*360+6900)*-01", "math.sin(query.anim_time*720+6900)*-04", "math.sin(query.anim_time*360+6900)*-6"]
 					},
 					"position": {
-						"vector": [0, "math.sin(query.anim_time*360+6900)*-1", 0]
+						"vector": [0, "math.sin(query.anim_time*360+6900)*-1", -11]
 					}
 				},
 				"bone4": {
@@ -34,7 +34,7 @@
 						"vector": [0, "math.sin(query.anim_time*720+6900)*-05", -90]
 					},
 					"position": {
-						"vector": [0, "math.sin(query.anim_time*900+6900)*-2", 0]
+						"vector": [0, "math.sin(query.anim_time*900+6900)*-2", -11]
 					}
 				},
 				"bone2": {

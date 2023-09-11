@@ -2,7 +2,7 @@ package net.rustandsquid.rustsfrogfish.entity.client.armor;
 
 import net.minecraft.resources.ResourceLocation;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
-import net.rustandsquid.rustsfrogfish.entity.custom.Froghat;
+import net.rustandsquid.rustsfrogfish.item.armor.Froghat;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class FroghatModel extends AnimatedGeoModel<Froghat> {

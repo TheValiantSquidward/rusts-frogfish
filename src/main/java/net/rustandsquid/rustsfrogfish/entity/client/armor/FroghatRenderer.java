@@ -1,6 +1,6 @@
 package net.rustandsquid.rustsfrogfish.entity.client.armor;
 
-import net.rustandsquid.rustsfrogfish.entity.custom.Froghat;
+import net.rustandsquid.rustsfrogfish.item.armor.Froghat;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 public class FroghatRenderer extends GeoArmorRenderer<Froghat> {

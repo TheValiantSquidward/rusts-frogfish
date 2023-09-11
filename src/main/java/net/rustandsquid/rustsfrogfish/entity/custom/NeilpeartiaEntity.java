@@ -140,13 +140,10 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
 
 
 
-
     public static AttributeSupplier setAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MOVEMENT_SPEED, 0.2f)
                 .add(Attributes.MAX_HEALTH, 16.0D).build();
-
-
     }
 
     public boolean isPushedByFluid() {

@@ -49,7 +49,8 @@ public class GiganhingaEntity extends Animal implements IAnimatable {
         this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, EntityTyrannosaurusRex.class, 8.0F, 1.6D, 1.4D, EntitySelector.NO_SPECTATORS::test));
         this.goalSelector.addGoal(3, new TryFindWaterGoal(this));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2D, false));
-        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(5, new RandomStrollGoal(this, 0.7D, 17));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Squid.class, true));
         this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Drowned.class, true));

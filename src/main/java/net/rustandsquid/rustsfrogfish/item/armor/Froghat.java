@@ -1,4 +1,4 @@
-package net.rustandsquid.rustsfrogfish.entity.custom;
+package net.rustandsquid.rustsfrogfish.item.armor;
 
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;

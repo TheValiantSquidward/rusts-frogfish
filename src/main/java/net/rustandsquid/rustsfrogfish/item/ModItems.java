@@ -12,6 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
+import net.rustandsquid.rustsfrogfish.item.armor.material.ModArmorMaterials;
 import net.rustandsquid.rustsfrogfish.item.custom.ThrowableEggItem;
 import net.rustandsquid.rustsfrogfish.item.custom.ThrowableGoldenEggItem;
 import net.rustandsquid.rustsfrogfish.sound.ModSounds;
@@ -124,13 +125,19 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntityTypes.NEILPEARTIA, 0xfac553, 0x732011,
             new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
+    public static final RegistryObject<Item> BLOCHIUSSPAWNEGG = ITEMS.register( "blochius_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.BLOCHIUS, 0x9bcfe9, 0x0b3042,
+                    new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+
+
     public static final RegistryObject<Item> GIGANHINGASPAWNEGG = ITEMS.register( "giganhinga_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.GIGANHINGA, 0x2f3c42, 0x805746,
                     new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
-    public static final RegistryObject<Item> BLOCHIUSSPAWNEGG = ITEMS.register( "blochius_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.BLOCHIUS, 0x9bcfe9, 0x0b3042,
+    public static final RegistryObject<Item> TAPEJARASPAWNEGG = ITEMS.register( "tapejara_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.TAPEJARA, 0x131313, 0xe5a742,
                     new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+
 
     //usable items
     public static final RegistryObject<Item> THROWABLEEGGITEM = ITEMS.register("throwable_anhinga_egg",

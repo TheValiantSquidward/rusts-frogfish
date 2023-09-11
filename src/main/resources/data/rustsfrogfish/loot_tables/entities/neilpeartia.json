@@ -3,57 +3,31 @@
   "pools": [
     {
       "rolls": 1,
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "rustsfrogfish:raw_frogfish",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 1
-              },
-              "add": false
-            },
-            {
-              "function": "minecraft:looting_enchant",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:inverted",
-              "term": {
-                "condition": "minecraft:damage_source_properties",
-                "predicate": {
-                  "source_entity": {
-                    "type": "unusualprehistory:dunk"
-                  }
-                }
-              }
-            }
-          ]
-        },
+          "name": "rustsfrogfish:raw_frogfish"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
         {
           "type": "minecraft:item",
           "name": "rustsfrogfish:frogfish_lure",
-          "functions": [
+          "conditions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
+              "condition": "minecraft:damage_source_properties",
+              "predicate": {
+                "source_entity": {
+                  "type": "unusualprehistory:dunk"
+                }
+              }
             }
           ]
         }
       ]
     }
-  ],
-  "random_sequence": "rustsfrogfish:entities/neilpeartia"
+  ]
 }

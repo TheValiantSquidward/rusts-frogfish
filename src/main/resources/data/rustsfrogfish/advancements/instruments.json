@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "rustsfrogfish:gilded_horn"
+    },
+    "title": "Sweet Tunes",
+    "description": "Collect all three Legendary Instruments",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "unusualprehistory:fossil",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "rustsfrogfish:gilded_horn"
+            ]
+          },
+          {
+            "items": [
+              "rustsfrogfish:flamboyant_saxophone"
+            ]
+          },
+          {
+            "items": [
+              "rustsfrogfish:elegant_flute"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

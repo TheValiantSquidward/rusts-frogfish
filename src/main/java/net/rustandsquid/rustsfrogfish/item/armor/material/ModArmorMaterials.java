@@ -1,4 +1,4 @@
-package net.rustandsquid.rustsfrogfish.item;
+package net.rustandsquid.rustsfrogfish.item.armor.material;
 
 import java.util.function.Supplier;
 import net.minecraft.sounds.SoundEvent;
@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
+import net.rustandsquid.rustsfrogfish.item.ModItems;
 
 public enum ModArmorMaterials implements ArmorMaterial {
 

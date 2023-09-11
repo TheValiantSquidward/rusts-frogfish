@@ -15,10 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.rustandsquid.rustsfrogfish.block.ModBlocks;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
-import net.rustandsquid.rustsfrogfish.entity.client.BlochiusModel;
-import net.rustandsquid.rustsfrogfish.entity.client.BlochiusRenderer;
-import net.rustandsquid.rustsfrogfish.entity.client.GiganhingaRenderer;
-import net.rustandsquid.rustsfrogfish.entity.client.NeilpeartiaRenderer;
+import net.rustandsquid.rustsfrogfish.entity.client.*;
 import net.rustandsquid.rustsfrogfish.item.ModItems;
 import net.rustandsquid.rustsfrogfish.potion.ModPotions;
 import net.rustandsquid.rustsfrogfish.util.HahaSuperBrewer;
@@ -76,6 +73,8 @@ public class RustsFrogfish {
                     (ModEntityTypes.GIGANHINGA.get(), GiganhingaRenderer::new);
             EntityRenderers.register
                     (ModEntityTypes.BLOCHIUS.get(), BlochiusRenderer::new);
+            EntityRenderers.register
+                    (ModEntityTypes.TAPEJARA.get(), TapejaraRenderer::new);
 
 
         }
