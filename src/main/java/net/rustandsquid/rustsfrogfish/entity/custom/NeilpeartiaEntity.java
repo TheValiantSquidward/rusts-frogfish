@@ -163,7 +163,7 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
         this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, EntityTyrannosaurusRex.class, 8.0F, 1.6D, 1.4D, EntitySelector.NO_SPECTATORS::test));
         this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers());
         this.goalSelector.addGoal(5, new RandomSwimmingGoal(this, 0.7D, 1));
-        this.goalSelector.addGoal(4, new SeafloorScuttleAI(this, 0.7D, 15));
+        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 0.7D, 15));
     }
 
 
