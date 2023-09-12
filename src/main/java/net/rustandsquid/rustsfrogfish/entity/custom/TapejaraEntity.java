@@ -73,6 +73,8 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
     private static final EntityDataAccessor<Boolean> FERMENTED = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> SHEDDING = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);
 
+    private static final EntityDataAccessor<Boolean> ENCRUSTIFY = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);
+
     private static final EntityDataAccessor<Boolean> GLOWBERRYCRUSH = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);
 
     private static final EntityDataAccessor<Boolean> FLYING;
@@ -136,6 +138,11 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         this.entityData.set(FERMENTED, Boolean.valueOf(fermented));
     }
 
+    public void setEncrustify(boolean encrustify) {
+        this.entityData.set(ENCRUSTIFY, Boolean.valueOf(encrustify));
+    }
+
+
     public void setShedding(boolean fermented) {
         this.entityData.set(SHEDDING, Boolean.valueOf(fermented));
     }
@@ -146,6 +153,10 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
 
     public boolean isFermented() {
         return this.entityData.get(FERMENTED).booleanValue();
+    }
+
+    public boolean isEncrustify() {
+        return this.entityData.get(ENCRUSTIFY).booleanValue();
     }
 
     public boolean isShedding() {
@@ -172,6 +183,21 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
             if (size > brewAmount) {
                 this.fullEffect();
                 this.setFermented(true);
+            }
+            return InteractionResult.SUCCESS;
+
+        }
+
+        if (item == UPItems.AMBER_SHARDS.get()) {
+            int size = itemstack.getCount();
+            if (!player.isCreative()) {
+                itemstack.shrink(1);
+                this.playSound(this.getEatingSound(itemstack), 1.0F, 0.3F);
+            }
+            int brewAmount = 58 + random.nextInt(16);
+            if (size > brewAmount) {
+                this.fullEffect();
+                this.setEncrustify(true);
             }
             return InteractionResult.SUCCESS;
 
@@ -222,6 +248,13 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
             this.spawnAtLocation(ModItems.GILDED_CREST.get());
             this.setShedding(false);
             this.playSound(this.getBurpSound(itemstack), 1.0F, 1.0F);
+            return InteractionResult.SUCCESS;
+        }
+
+        if (this.isEncrustify()) {
+            this.spawnAtLocation(UPItems.ENCRUSTED_EGG.get());
+            this.setEncrustify(false);
+            this.playSound(this.getBurpSound(itemstack), 1.0F, 0.2F);
             return InteractionResult.SUCCESS;
         }
         return super.mobInteract(player, hand);
