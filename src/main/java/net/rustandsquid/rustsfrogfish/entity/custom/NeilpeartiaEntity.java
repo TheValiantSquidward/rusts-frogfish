@@ -32,6 +32,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
+import net.rustandsquid.rustsfrogfish.entity.ai.SeafloorScuttleAI;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -162,7 +163,7 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
         this.goalSelector.addGoal(2, new AvoidEntityGoal<>(this, EntityTyrannosaurusRex.class, 8.0F, 1.6D, 1.4D, EntitySelector.NO_SPECTATORS::test));
         this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers());
         this.goalSelector.addGoal(5, new RandomSwimmingGoal(this, 0.7D, 1));
-        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 0.7D, 15));
+        this.goalSelector.addGoal(4, new SeafloorScuttleAI(this, 0.7D, 15));
     }
 
 

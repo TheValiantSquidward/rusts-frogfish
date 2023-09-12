@@ -72,6 +72,9 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
 
     private static final EntityDataAccessor<Boolean> FERMENTED = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> SHEDDING = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);
+
+    private static final EntityDataAccessor<Boolean> GLOWBERRYCRUSH = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);
+
     private static final EntityDataAccessor<Boolean> FLYING;
     private static final EntityDataAccessor<Integer> CROPS_POLLINATED;
     private static final UniformInt PERSISTENT_ANGER_TIME;
@@ -137,6 +140,10 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         this.entityData.set(SHEDDING, Boolean.valueOf(fermented));
     }
 
+    public void setGlowberrycrush(boolean fermented) {
+        this.entityData.set(GLOWBERRYCRUSH, Boolean.valueOf(fermented));
+    }
+
     public boolean isFermented() {
         return this.entityData.get(FERMENTED).booleanValue();
     }
@@ -145,11 +152,16 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         return this.entityData.get(SHEDDING).booleanValue();
     }
 
+    public boolean isGlowberrycrush() {
+        return this.entityData.get(GLOWBERRYCRUSH).booleanValue();
+    }
+
 
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
         if(hand != InteractionHand.MAIN_HAND) return InteractionResult.FAIL;
+
         if (item == Items.GLISTERING_MELON_SLICE) {
             int size = itemstack.getCount();
             if (!player.isCreative()) {
@@ -160,6 +172,21 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
             if (size > brewAmount) {
                 this.fullEffect();
                 this.setFermented(true);
+            }
+            return InteractionResult.SUCCESS;
+
+        }
+
+        if (item == Items.GLOW_BERRIES) {
+            int size = itemstack.getCount();
+            if (!player.isCreative()) {
+                itemstack.shrink(1);
+                this.playSound(this.getEatingSound(itemstack), 1.0F, 1.0F);
+            }
+            int brewAmount = 58 + random.nextInt(16);
+            if (size > brewAmount) {
+                this.fullEffect();
+                this.setGlowberrycrush(true);
             }
             return InteractionResult.SUCCESS;
 
@@ -182,6 +209,12 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         if (this.isFermented()) {
             this.spawnAtLocation(ModItems.SEEDY_REMAINS.get());
             this.setFermented(false);
+            this.playSound(this.getBurpSound(itemstack), 1.0F, 1.0F);
+            return InteractionResult.SUCCESS;
+        }
+        if (this.isGlowberrycrush()) {
+            this.spawnAtLocation(Items.GLOWSTONE_DUST);
+            this.setGlowberrycrush(false);
             this.playSound(this.getBurpSound(itemstack), 1.0F, 1.0F);
             return InteractionResult.SUCCESS;
         }
@@ -238,6 +271,7 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         this.entityData.define(CROPS_POLLINATED, 0);
         this.entityData.define(FERMENTED, false);
         this.entityData.define(SHEDDING, false);
+        this.entityData.define(GLOWBERRYCRUSH, false);
     }
 
     public void tick() {
@@ -335,6 +369,7 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         compound.putInt("PollinateCooldown", this.pollinateCooldown);
         compound.putBoolean("Fermented", this.isFermented());
         compound.putBoolean("Shedding", this.isShedding());
+        compound.putBoolean("Glowberrycrush", this.isGlowberrycrush());
     }
 
     public void readAdditionalSaveData(CompoundTag compound) {
@@ -344,6 +379,7 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         this.pollinateCooldown = compound.getInt("PollinateCooldown");
         this.setFermented(compound.getBoolean("Fermented"));
         this.setShedding(compound.getBoolean("Shedding"));
+        this.setGlowberrycrush(compound.getBoolean("Glowberrycrush"));
     }
 
     protected SoundEvent getAmbientSound() {

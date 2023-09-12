@@ -112,13 +112,13 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.FROGHAT, EquipmentSlot.HEAD, new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
     public static final RegistryObject<Item> GILDED_HORN = ITEMS.register("gilded_horn",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB).stacksTo(1)));
 
     public static final RegistryObject<Item> FLAMBOYANT_SAXOPHONE = ITEMS.register("flamboyant_saxophone",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB).stacksTo(1)));
 
     public static final RegistryObject<Item> ELEGANT_FLUTE = ITEMS.register("elegant_flute",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB).stacksTo(1)));
 
     //spawn eggs
     public static final RegistryObject<Item> NEILPEARTIASPAWNEGG = ITEMS.register( "neilpeartia_spawn_egg",
