@@ -32,7 +32,6 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
-import net.rustandsquid.rustsfrogfish.entity.ai.SeafloorScuttleAI;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
