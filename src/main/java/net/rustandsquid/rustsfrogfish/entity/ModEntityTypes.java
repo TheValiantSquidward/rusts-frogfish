@@ -46,8 +46,12 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<HappySonicBlastEntity>> HAPPYSONICBLAST = ENTITIES.register(
             "happy_sonic_blast", () -> EntityType.Builder.<HappySonicBlastEntity>of(HappySonicBlastEntity::new, MobCategory.MISC)
                     .sized(0.5F, 0.5F).clientTrackingRange(9)
-                    .build(new ResourceLocation(RustsFrogfish.MOD_ID, "amber_shot").toString()));
+                    .build(new ResourceLocation(RustsFrogfish.MOD_ID, "happy_sonic_blast").toString()));
 
+    public static final RegistryObject<EntityType<HappySonicBlastEntity>> BLOCHIUSBLAST = ENTITIES.register(
+            "blochiblast", () -> EntityType.Builder.<HappySonicBlastEntity>of(HappySonicBlastEntity::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F).clientTrackingRange(9)
+                    .build(new ResourceLocation(RustsFrogfish.MOD_ID, "blochiblast").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

@@ -6,6 +6,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -17,6 +20,9 @@ import net.minecraft.world.entity.animal.Cod;
 import net.minecraft.world.entity.animal.Salmon;
 import net.minecraft.world.entity.animal.Squid;
 import net.minecraft.world.entity.monster.Drowned;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.rustandsquid.rustsfrogfish.sound.ModSounds;
@@ -34,7 +40,13 @@ public class GiganhingaEntity extends Animal implements IAnimatable {
     public GiganhingaEntity(EntityType<? extends Animal> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);
     }
+
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
+    private int rideCooldown = 0;
+    public int soundTimer = 0;
+
+    public boolean isRiding = false;
+    public boolean entitySpawn = false;
 
     public static AttributeSupplier setAttributes() {
         return Mob.createMobAttributes()
@@ -59,26 +71,82 @@ public class GiganhingaEntity extends Animal implements IAnimatable {
     }
 
 
-        private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-            if (this.getDeltaMovement().horizontalDistanceSqr() > 1.0E-6 && !this.isSwimming()) {
-                {
-                    event.getController().setAnimation(new AnimationBuilder().loop("animation.model.walk"));
-                    return PlayState.CONTINUE;
-                }
-            }
-            if (this.isInWater()) {
-                event.getController().setAnimation(new AnimationBuilder().loop("animation.model.floatswim"));
-                event.getController().setAnimationSpeed(1.0F);
+    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        if (this.getDeltaMovement().horizontalDistanceSqr() > 1.0E-6 && !this.isSwimming()) {
+            {
+                event.getController().setAnimation(new AnimationBuilder().loop("animation.model.walk"));
                 return PlayState.CONTINUE;
             }
-            else {
-                event.getController().setAnimation(new AnimationBuilder().loop("animation.model.idle"));
-                event.getController().setAnimationSpeed(1.0D);
-            }
+        }
+        if (this.isInWater()) {
+            event.getController().setAnimation(new AnimationBuilder().loop("animation.model.floatswim"));
+            event.getController().setAnimationSpeed(1.0F);
             return PlayState.CONTINUE;
+        } else {
+            event.getController().setAnimation(new AnimationBuilder().loop("animation.model.idle"));
+            event.getController().setAnimationSpeed(1.0D);
+        }
+        return PlayState.CONTINUE;
     }
 
-//sounds
+
+    public void rideTick() {
+        Entity mount = this.getVehicle();
+
+        if (this.isPassenger() && !mount.isAlive()) {
+            this.stopRiding();
+        } else if (mount instanceof Player player && this.isPassenger()) {
+            this.setDeltaMovement(0, 0, 0);
+            //this.yBodyRot = ((LivingEntity) player).yBodyRot;
+            //this.setYRot(player.getYRot());
+            //this.yHeadRot = ((LivingEntity) player).yHeadRot;
+            //this.yRotO = ((LivingEntity) player).yHeadRot;
+            float radius = 0F;
+            float angle = (0.01745329251F * (player.yBodyRot - 180F));
+            double extraX = radius * Mth.sin((float) (Math.PI + angle));
+            double extraZ = radius * Mth.cos(angle);
+            playPanicSound();
+            this.setPos(player.getX() + extraX, Math.max(player.getY() + player.getBbHeight() + 0.1, player.getY()), player.getZ() + extraZ);
+            if (!player.isAlive() || rideCooldown == 0 || player.isShiftKeyDown()) {
+                this.stopRiding();
+            }
+        } else {
+            super.rideTick();
+        }
+
+    }
+
+    private void playPanicSound() {
+        if (this.soundTimer <= 0) {
+            this.playSound(SoundEvents.CHICKEN_HURT, this.getSoundVolume(), (this.getRandom().nextFloat() - this.getRandom().nextFloat()) * 0.2F + 1.0F);
+            soundTimer = 80;
+        }
+    }
+
+    @Override
+    public boolean isInvulnerableTo(DamageSource source) {
+        return source == DamageSource.IN_WALL || super.isInvulnerableTo(source);
+    }
+
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
+        ItemStack itemstack2 = player.getItemInHand(InteractionHand.OFF_HAND);
+        Item item = itemstack.getItem();
+        if (!isFood(itemstack)) {
+            if (player.getPassengers().isEmpty()) {
+                this.startRiding(player);
+                this.isRiding = true;
+                rideCooldown = 20;
+                return InteractionResult.SUCCESS;
+            }
+        }
+        return super.mobInteract(player, hand);
+    }
+
+
+
+
+    //sounds
 protected SoundEvent getAmbientSound() {
     return ModSounds.ANHINGAIDLE.get();
 }

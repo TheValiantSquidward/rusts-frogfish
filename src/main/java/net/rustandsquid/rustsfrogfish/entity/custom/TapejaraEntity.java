@@ -3,8 +3,8 @@ package net.rustandsquid.rustsfrogfish.entity.custom;
 import com.peeko32213.unusualprehistory.common.config.UnusualPrehistoryConfig;
 import com.peeko32213.unusualprehistory.common.entity.EntityMajungasaurus;
 import com.peeko32213.unusualprehistory.common.entity.EntityTyrannosaurusRex;
-import com.peeko32213.unusualprehistory.common.entity.msc.util.AnuroPolinateGoal;
 import com.peeko32213.unusualprehistory.common.entity.msc.util.FlyingMoveController;
+import com.peeko32213.unusualprehistory.core.registry.UPBlocks;
 import com.peeko32213.unusualprehistory.core.registry.UPItems;
 import com.peeko32213.unusualprehistory.core.registry.UPSounds;
 import com.peeko32213.unusualprehistory.core.registry.UPTags;
@@ -252,7 +252,7 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         }
 
         if (this.isEncrustify()) {
-            this.spawnAtLocation(UPItems.ENCRUSTED_EGG.get());
+            this.spawnAtLocation(UPBlocks.ENCRUSTED_SACK.get());
             this.setEncrustify(false);
             this.playSound(this.getBurpSound(itemstack), 1.0F, 0.2F);
             return InteractionResult.SUCCESS;
@@ -305,6 +305,7 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         this.entityData.define(FERMENTED, false);
         this.entityData.define(SHEDDING, false);
         this.entityData.define(GLOWBERRYCRUSH, false);
+        this.entityData.define(ENCRUSTIFY, false);
     }
 
     public void tick() {

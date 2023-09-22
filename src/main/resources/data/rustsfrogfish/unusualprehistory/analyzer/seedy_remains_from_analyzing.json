@@ -1,0 +1,45 @@
+{
+  "input": ["rustsfrogfish:seedy_remains"],
+  "entries": [
+    {
+      "weight": 50,
+      "item": "minecraft:coal"
+    },
+    {
+      "weight": 50,
+      "item": "unusualprehistory:plant_fossil_item"
+    },
+    {
+      "weight": 50,
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "weight": 50,
+      "item": "rustsfrogfish:starchy_redroots"
+    },
+    {
+      "weight": 50,
+      "item": "minecraft:potato"
+    },
+    {
+      "weight": 50,
+      "item": "minecraft:poisonous_potato"
+    },
+    {
+      "weight": 50,
+      "item": "minecraft:beetroot_seeds"
+    },
+    {
+      "weight": 50,
+      "item": "minecraft:carrot"
+    },
+    {
+      "weight": 50,
+      "item": "minecraft:hanging_roots"
+    },
+    {
+      "weight": 50,
+      "item": "rustsfrogfish:ensete_oregonese_dna"
+    }
+  ]
+}
