@@ -60,6 +60,7 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
     private static final EntityDataAccessor<Boolean> DULLED = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> KERMIT = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
 
+    private static final EntityDataAccessor<Boolean> FISHINGFROG = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
 
 
     public NeilpeartiaEntity(EntityType<? extends EntityBaseDinosaurAnimal> p_21683_, Level p_21684_) {

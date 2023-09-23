@@ -1,12 +1,26 @@
 package net.rustandsquid.rustsfrogfish;
 
 import com.mojang.logging.LogUtils;
+import com.peeko32213.unusualprehistory.common.config.UnusualPrehistoryConfig;
+import com.peeko32213.unusualprehistory.core.registry.UPTags;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.AbstractFish;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -47,6 +61,8 @@ public class RustsFrogfish {
 
         modEventBus.addListener(this::commonSetup);
 
+        modEventBus.addListener(this::registerSpawnPlacements);
+
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -61,6 +77,18 @@ public class RustsFrogfish {
         return new ResourceLocation(MOD_ID, name.toLowerCase(Locale.ROOT));
     }
 
+    private void registerSpawnPlacements(final SpawnPlacementRegisterEvent event) {
+        event.register(ModEntityTypes.GIGANHINGA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+    }
+
+    private boolean canLandAnimalSpawn(EntityType<? extends Animal> p_186238_, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource p_186242_) {
+        return level.getBlockState(pos.below()).is(UPTags.DINO_NATURAL_SPAWNABLE) && UnusualPrehistoryConfig.DINO_NATURAL_SPAWNING.get();
+    }
+
+    private boolean canFishAnimalSpawn(EntityType<? extends AbstractFish> p_186238_, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource p_186242_) {
+        return level.getFluidState(pos.below()).is(FluidTags.WATER) && level.getBlockState(pos.above()).is(Blocks.WATER) && UnusualPrehistoryConfig.DINO_NATURAL_SPAWNING.get();
+    }
+    
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
