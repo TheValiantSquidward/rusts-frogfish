@@ -7,6 +7,11 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 6,
+          "name": "unusualprehistory:opal_chunk"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 17,
           "name": "unusualprehistory:amber_shard",
           "conditions": [
@@ -157,7 +162,7 @@
         {
           "type": "minecraft:item",
           "weight": 6,
-          "name": "minecraft:bamboo",
+          "name": "unusualprehistory:zuloage",
           "conditions": [
             {
               "condition": "minecraft:alternative",

@@ -5,6 +5,7 @@ import com.peeko32213.unusualprehistory.common.block.BlockDinosaurLandEggs;
 import com.peeko32213.unusualprehistory.common.block.BlockDinosaurWaterEggs;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -67,7 +68,8 @@ public class ModBlocks {
             ),
             entry -> new BlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
 
-
+    //public static final RegistryObject<Block> BANANA_CROP = registerBlock("banana_crop",
+           // () -> new DoublePlantBlock(new FoxiiTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
     public static void register(IEventBus eventBus){
         BLOCKS.register(eventBus);

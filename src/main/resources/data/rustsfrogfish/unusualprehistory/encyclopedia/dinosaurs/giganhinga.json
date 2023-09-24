@@ -1,10 +1,10 @@
 {
-  "text": "neilpeartia.txt",
-  "title": "  Neilpeartia",
+  "text": "giganhinga.txt",
+  "title": "  Giganhinga",
   "page_to_go": "unusualprehistory:dinosaurs",
   "entity_renders": [
     {
-      "entity": "rustsfrogfish:neilpeartia",
+      "entity": "rustsfrogfish:giganhinga",
       "x": 90,
       "y": 90,
       "page" : 0,
@@ -17,15 +17,15 @@
   ],
   "entity_button":[
     {
-      "entity": "rustsfrogfish:neilpeartia",
+      "entity": "rustsfrogfish:giganhinga",
       "x": 350,
       "y": 40,
       "page" : 0,
       "scale": 1.2,
-      "entity_scale": 0.7,
+      "entity_scale": 0.9,
       "offset_x": 8,
       "offset_y":5,
-      "hover_text": "Neilpeartia"
+      "hover_text": "Giganhinga"
     }
   ]
 }

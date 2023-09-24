@@ -34,6 +34,10 @@
           "type": "minecraft:item",
           "weight": 18,
           "name": "minecraft:pufferfish"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "rustsfrogfish:raw_blochius"
         }
       ]
     }
