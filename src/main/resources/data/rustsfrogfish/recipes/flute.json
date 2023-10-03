@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "minecraft:bamboo"
+      "item": "unusualprehistory:zuloagae"
     },
     "X": {
       "item": "rustsfrogfish:elegant_crest"

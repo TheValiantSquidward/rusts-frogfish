@@ -1,0 +1,9 @@
+{
+  "input": ["rustsfrogfish:raw_blochius"],
+  "entries": [
+    {
+      "weight": 100,
+      "item": "rustsfrogfish:blochius_dna"
+    }
+  ]
+}

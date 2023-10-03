@@ -23,8 +23,8 @@
       "page" : 0,
       "scale": 1.2,
       "entity_scale": 0.9,
-      "offset_x": 8,
-      "offset_y":5,
+      "offset_x": 0,
+      "offset_y":0,
       "hover_text": "Giganhinga"
     }
   ]

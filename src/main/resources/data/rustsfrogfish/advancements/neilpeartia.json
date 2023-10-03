@@ -1,46 +1,72 @@
 {
+  "parent": "unusualprehistory:main/incubator",
+  "criteria": {
+    "damage_neilpeartia": {
+      "conditions": {
+        "damage": {
+          "type": {
+            "direct_entity": {
+              "type": "rustsfrogfish:neilpeartia"
+            }
+          }
+        }
+      },
+      "trigger": "minecraft:player_hurt_entity"
+    },
+    "interact_neilpeartia": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "rustsfrogfish:neilpeartia"
+            }
+          }
+        ],
+        "item": {}
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    },
+    "killed_neilpeartia": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "rustsfrogfish:neilpeartia"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
   "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "unusualprehistory.advancement.interact_neilpeartia.desc"
+    },
+    "frame": "task",
+    "hidden": true,
     "icon": {
       "item": "rustsfrogfish:neilpeartia_dna"
     },
-    "title": "Rush Drummer",
-    "description": "Revive a Neilpeartia",
-    "frame": "task",
     "show_toast": true,
-    "announce_to_chat": true
-  },
-  "parent": "unusualprehistory:egg",
-  "criteria": {
-    "killed": {
-      "trigger": "minecraft:player_killed_entity",
-      "conditions": {
-        "entity": {
-          "type": "rustsfrogfish:neilpeartia"
-        }
-      }
-    },
-    "killed_by": {
-      "trigger": "minecraft:player_hurt_entity",
-      "conditions": {
-        "entity": {
-          "type": "rustsfrogfish:neilpeartia"
-        }
-      }
-    },
-    "interact": {
-      "trigger": "minecraft:player_interacted_with_entity",
-      "conditions": {
-        "entity": {
-          "type": "rustsfrogfish:neilpeartia"
-        }
-      }
+    "title": {
+      "translate": "unusualprehistory.advancement.interact_neilpeartia"
     }
   },
   "requirements": [
     [
-      "killed",
-      "killed_by",
-      "interact"
+      "damage_neilpeartia"
+    ],
+    [
+      "interact_neilpeartia"
+    ],
+    [
+      "killed_neilpeartia"
     ]
   ]
 }

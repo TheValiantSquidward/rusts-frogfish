@@ -8,6 +8,9 @@
   "item.rustsfrogfish.blochius_spawn_egg" : "Blochius Spawn Egg",
   "item.rustsfrogfish.tapejara_spawn_egg" : "Tapejara Spawn Egg",
 
+  "unusualprehistory.advancement.interact_neilpeartia" : "Rush Drummer",
+  "unusualprehistory.advancement.interact_neilpeartia.desc" : "Revive a Neilpeartia",
+
   "item.rustsfrogfish.raw_frogfish" : "Raw Neilpeartia",
   "item.rustsfrogfish.raw_giganhinga" : "Raw Giganhinga",
   "item.rustsfrogfish.roast_giganhinga" : "Roast Giganhinga",

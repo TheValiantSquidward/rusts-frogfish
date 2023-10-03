@@ -68,7 +68,7 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
     }
 
 
-    private final long spawnInterval = 22222;
+    private final long spawnInterval = 5;
     @Override
     public void tick() {
         super.tick();

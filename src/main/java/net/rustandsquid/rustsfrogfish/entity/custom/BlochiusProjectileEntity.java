@@ -32,15 +32,15 @@ public class BlochiusProjectileEntity extends BetterAbstractHurtingProjectile im
     protected boolean inAir;
     private int ticksInAir;
     
-    public BlochiusProjectileEntity(Level worldIn, LivingEntity shooter, double accelX, double accelY, double accelZ,
-                                      float directHitDamage) {
-        super(ModEntityTypes.BLOCHIUSBLAST.get(), shooter, accelX, accelY, accelZ, worldIn);
-        this.directHitDamage = directHitDamage;
-    }
+    //public BlochiusProjectileEntity(Level worldIn, LivingEntity shooter, double accelX, double accelY, double accelZ,
+   //                                   float directHitDamage) {
+        //super(ModEntityTypes.BLOCHIUSBLAST.get(), shooter, accelX, accelY, accelZ, worldIn);
+      //  this.directHitDamage = directHitDamage;
+    //}
 
-    public BlochiusProjectileEntity(net.minecraft.world.level.Level worldIn, double x, double y, double z, double accelX, double accelY, double accelZ) {
-        super(ModEntityTypes.BLOCHIUSBLAST.get(), x, y, z, accelX, accelY, accelZ, worldIn);
-    }
+    //public BlochiusProjectileEntity(net.minecraft.world.level.Level worldIn, double x, double y, double z, double accelX, double accelY, double accelZ) {
+  //      super(ModEntityTypes.BLOCHIUSBLAST.get(), x, y, z, accelX, accelY, accelZ, worldIn);
+    //}
 
     @Override
     public void shoot(double x, double y, double z, float velocity, float inaccuracy) {

@@ -27,10 +27,5 @@ public class ModEvents {
             event.put(ModEntityTypes.BLOCHIUS.get(), BlochiusEntity.setAttributes());
             event.put(ModEntityTypes.TAPEJARA.get(), TapejaraEntity.setAttributes());
         }
-
-        @SubscribeEvent
-        public static void registerArmorRenders(EntityRenderersEvent.AddLayers event) {
-            GeoArmorRenderer.registerArmorRenderer(Froghat.class, () -> new FroghatRenderer());
-        }
     }
 }

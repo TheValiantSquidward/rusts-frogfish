@@ -162,7 +162,7 @@
         {
           "type": "minecraft:item",
           "weight": 6,
-          "name": "unusualprehistory:zuloage",
+          "name": "unusualprehistory:zuloagae",
           "conditions": [
             {
               "condition": "minecraft:alternative",

@@ -70,6 +70,11 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
     @javax.annotation.Nullable
     private UUID persistentAngerTarget;
 
+    private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> FLAMBOYANT = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> GILDED = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> ELEGANT = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
+
     private static final EntityDataAccessor<Boolean> FERMENTED = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> SHEDDING = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);
 
@@ -306,6 +311,102 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         this.entityData.define(SHEDDING, false);
         this.entityData.define(GLOWBERRYCRUSH, false);
         this.entityData.define(ENCRUSTIFY, false);
+
+        this.entityData.define(VARIANT, 0);
+        this.entityData.define(GILDED, Boolean.valueOf(false));
+        this.entityData.define(FLAMBOYANT, Boolean.valueOf(false));
+        this.entityData.define(ELEGANT, Boolean.valueOf(false));
+    }
+
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putBoolean("Flying", this.isFlying());
+        compound.putInt("CropsPollinated", this.getCropsPollinated());
+        compound.putInt("PollinateCooldown", this.pollinateCooldown);
+        compound.putBoolean("Fermented", this.isFermented());
+        compound.putBoolean("Shedding", this.isShedding());
+        compound.putBoolean("Glowberrycrush", this.isGlowberrycrush());
+        compound.putInt("Variant", getVariant());
+        compound.putBoolean("Gilded", this.isDull());
+        compound.putBoolean("Flamboyant", this.isGolden());
+        compound.putBoolean("Elegant", this.isKermit());
+    }
+
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        this.setFlying(compound.getBoolean("Flying"));
+        this.setCropsPollinated(compound.getInt("CropsPollinated"));
+        this.pollinateCooldown = compound.getInt("PollinateCooldown");
+        this.setFermented(compound.getBoolean("Fermented"));
+        this.setShedding(compound.getBoolean("Shedding"));
+        this.setGlowberrycrush(compound.getBoolean("Glowberrycrush"));
+        setVariant(compound.getInt("Variant"));
+        this.setDull(compound.getBoolean("Gilded"));
+        this.setGolden(compound.getBoolean("Flamboyant"));
+        this.setKermit(compound.getBoolean("Elegant"));
+    }
+    public void determineVariant(int variantChange){
+        if (variantChange <= 10) {
+            this.setKermit(true);
+            this.setVariant(2);
+
+        } else if (variantChange <= 30) {
+            this.setDull(true);
+            this.setVariant(1);
+
+        }else {
+            this.setGolden(true);
+            this.setVariant(0);
+        }
+
+    }
+
+    public boolean isDull() {
+        return this.entityData.get(GILDED).booleanValue();
+    }
+
+    public boolean isGolden() {
+        return this.entityData.get(FLAMBOYANT).booleanValue();
+    }
+
+    public boolean isKermit() {
+        return this.entityData.get(ELEGANT).booleanValue();
+    }
+
+    public void setGolden(boolean green) {
+        boolean prev = isGolden();
+        if (!prev && green) {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+            this.setHealth(20.0F);
+        } else {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+        }
+        this.heal(this.getMaxHealth());
+        this.entityData.set(FLAMBOYANT, green);
+    }
+
+    public void setDull(boolean green) {
+        boolean prev = isDull();
+        if (!prev && green) {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+            this.setHealth(16.0F);
+        } else {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+        }
+        this.heal(this.getMaxHealth());
+        this.entityData.set(GILDED, green);
+    }
+
+    public void setKermit(boolean green) {
+        boolean prev = isKermit();
+        if (!prev && green) {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+            this.setHealth(300.0F);
+        } else {
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+        }
+        this.heal(this.getMaxHealth());
+        this.entityData.set(ELEGANT, green);
     }
 
     public void tick() {
@@ -396,25 +497,7 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         return dist <= 1.0 || result.getType() == HitResult.Type.MISS;
     }
 
-    public void addAdditionalSaveData(CompoundTag compound) {
-        super.addAdditionalSaveData(compound);
-        compound.putBoolean("Flying", this.isFlying());
-        compound.putInt("CropsPollinated", this.getCropsPollinated());
-        compound.putInt("PollinateCooldown", this.pollinateCooldown);
-        compound.putBoolean("Fermented", this.isFermented());
-        compound.putBoolean("Shedding", this.isShedding());
-        compound.putBoolean("Glowberrycrush", this.isGlowberrycrush());
-    }
 
-    public void readAdditionalSaveData(CompoundTag compound) {
-        super.readAdditionalSaveData(compound);
-        this.setFlying(compound.getBoolean("Flying"));
-        this.setCropsPollinated(compound.getInt("CropsPollinated"));
-        this.pollinateCooldown = compound.getInt("PollinateCooldown");
-        this.setFermented(compound.getBoolean("Fermented"));
-        this.setShedding(compound.getBoolean("Shedding"));
-        this.setGlowberrycrush(compound.getBoolean("Glowberrycrush"));
-    }
 
     protected SoundEvent getAmbientSound() {
         return (SoundEvent)UPSounds.ANURO_IDLE.get();
@@ -643,6 +726,8 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
 
         }
 
+
+
         @javax.annotation.Nullable
         protected Vec3 getPosition() {
             Vec3 vector3d = TapejaraEntity.this.position();
@@ -665,6 +750,14 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
             this.z = 0.0;
             super.stop();
         }
+    }
+
+    public int getVariant() {
+        return this.entityData.get(VARIANT);
+    }
+
+    public void setVariant(int variant) {
+        this.entityData.set(VARIANT, variant);
     }
 
 }

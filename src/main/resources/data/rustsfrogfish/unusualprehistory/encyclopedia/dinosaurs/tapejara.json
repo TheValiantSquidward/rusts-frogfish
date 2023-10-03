@@ -5,10 +5,10 @@
   "entity_renders": [
     {
       "entity": "rustsfrogfish:tapejara",
-      "x": 90,
+      "x": 105,
       "y": 90,
       "page" : 0,
-      "scale": 1,
+      "scale": 0.7,
       "rot_x": 30,
       "rot_y": 225,
       "rot_z": 0,
@@ -21,10 +21,10 @@
       "x": 350,
       "y": 40,
       "page" : 0,
-      "scale": 1.0,
-      "entity_scale": 0.2,
-      "offset_x": 8,
-      "offset_y":5,
+      "scale": 1.2,
+      "entity_scale": 0.3,
+      "offset_x": 11,
+      "offset_y": 9,
       "hover_text": "Tapejara"
     }
   ]

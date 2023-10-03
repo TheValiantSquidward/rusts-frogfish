@@ -32,7 +32,6 @@ import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
 import net.rustandsquid.rustsfrogfish.entity.client.*;
 import net.rustandsquid.rustsfrogfish.item.ModItems;
 import net.rustandsquid.rustsfrogfish.potion.ModPotions;
-import net.rustandsquid.rustsfrogfish.util.HahaSuperBrewer;
 import net.rustandsquid.rustsfrogfish.sound.ModSounds;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
@@ -68,8 +67,7 @@ public class RustsFrogfish {
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        BrewingRecipeRegistry.addRecipe(new HahaSuperBrewer(Potions.AWKWARD,
-                ModItems.RAW_FROGFISH.get(), ModPotions.GLOW_POTION.get()));
+
     }
 
 
