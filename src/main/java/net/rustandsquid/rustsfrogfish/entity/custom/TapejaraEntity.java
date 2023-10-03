@@ -4,6 +4,7 @@ import com.peeko32213.unusualprehistory.common.config.UnusualPrehistoryConfig;
 import com.peeko32213.unusualprehistory.common.entity.EntityMajungasaurus;
 import com.peeko32213.unusualprehistory.common.entity.EntityTyrannosaurusRex;
 import com.peeko32213.unusualprehistory.common.entity.msc.util.FlyingMoveController;
+import com.peeko32213.unusualprehistory.common.entity.msc.util.dino.EntityBaseDinosaurAnimal;
 import com.peeko32213.unusualprehistory.core.registry.UPBlocks;
 import com.peeko32213.unusualprehistory.core.registry.UPItems;
 import com.peeko32213.unusualprehistory.core.registry.UPSounds;
@@ -17,6 +18,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.TimeUtil;
@@ -65,7 +67,7 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.function.Predicate;
 
-public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMob {
+public class TapejaraEntity extends EntityBaseDinosaurAnimal implements IAnimatable, NeutralMob {
     private AnimationFactory factory = GeckoLibUtil.createFactory(this);
     @javax.annotation.Nullable
     private UUID persistentAngerTarget;
@@ -98,7 +100,7 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
     private boolean isLandNavigator;
     private int timeFlying;
 
-    public TapejaraEntity(EntityType<? extends AgeableMob> entityType, net.minecraft.world.level.Level level) {
+    public TapejaraEntity(EntityType<? extends EntityBaseDinosaurAnimal> entityType, net.minecraft.world.level.Level level) {
         super(entityType, level);
         this.switchNavigator(true);
     }
@@ -604,6 +606,51 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         return shouldHurt;
     }
 
+    @Override
+    protected SoundEvent getAttackSound() {
+        return null;
+    }
+
+    @Override
+    protected int getKillHealAmount() {
+        return 0;
+    }
+
+    @Override
+    protected boolean canGetHungry() {
+        return false;
+    }
+
+    @Override
+    protected boolean hasTargets() {
+        return false;
+    }
+
+    @Override
+    protected boolean hasAvoidEntity() {
+        return false;
+    }
+
+    @Override
+    protected boolean hasCustomNavigation() {
+        return false;
+    }
+
+    @Override
+    protected boolean hasMakeStuckInBlock() {
+        return false;
+    }
+
+    @Override
+    protected boolean customMakeStuckInBlockCheck(BlockState blockState) {
+        return false;
+    }
+
+    @Override
+    protected TagKey<EntityType<?>> getTargetTag() {
+        return null;
+    }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving() && this.isOnGround() && this.onGround) {
             event.getController().setAnimation((new AnimationBuilder()).loop("animation.model.new5"));
@@ -678,9 +725,7 @@ public class TapejaraEntity extends AgeableMob implements IAnimatable, NeutralMo
         return p_28137_;
     }
 
-    public static boolean checkSurfaceDinoSpawnRules(EntityType<? extends TapejaraEntity> p_186238_, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource p_186242_) {
-        return level.getBlockState(pos.below()).is(UPTags.DINO_NATURAL_SPAWNABLE) && (Boolean)UnusualPrehistoryConfig.DINO_NATURAL_SPAWNING.get();
-    }
+
 
     static {
         FLYING = SynchedEntityData.defineId(TapejaraEntity.class, EntityDataSerializers.BOOLEAN);

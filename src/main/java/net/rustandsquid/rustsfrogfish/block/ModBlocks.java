@@ -68,6 +68,13 @@ public class ModBlocks {
             ),
             entry -> new BlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
 
+    public static final Supplier<Block> TAPEJARA_EGGS = create("tapejara_eggs",
+            () -> new BlockDinosaurLandEggs(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS).instabreak().noOcclusion().noCollission().randomTicks(),
+                    ModEntityTypes.TAPEJARA,
+                    3
+            ),
+            entry -> new BlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
+
     //public static final RegistryObject<Block> BANANA_CROP = registerBlock("banana_crop",
            // () -> new DoublePlantBlock(new FoxiiTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
