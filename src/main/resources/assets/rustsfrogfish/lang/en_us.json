@@ -26,8 +26,10 @@
   "item.rustsfrogfish.elegant_crest" : "Elegant Crest",
   "item.rustsfrogfish.fish_bone" : "Fish Bone",
 
-  "block.rustsfrogfish.neilpeartia_eggs" : "Neilpeartia Eggs",
-  "block.rustsfrogfish.giganhinga_eggs" : "Giganhinga Eggs",
+  "block.rustsfrogfish.neilpeartia_eggs" : "Neilpeartia Egg",
+  "block.rustsfrogfish.giganhinga_eggs" : "Giganhinga Egg",
+  "block.rustsfrogfish.tapejara_eggs" : "Tapejara Egg",
+  "block.rustsfrogfish.blochius_eggs" : "Blochius Egg",
 
   "item.rustsfrogfish.neilpeartia_dna" : "Neilpeartia DNA Flask",
   "item.rustsfrogfish.giganhinga_dna" : "Giganhinga DNA Flask",
@@ -44,6 +46,11 @@
   "item.rustsfrogfish.gilded_horn" : "Gilded Horn",
   "item.rustsfrogfish.flamboyant_saxophone" : "Flamboyant Saxophone",
   "item.rustsfrogfish.elegant_flute" : "Elegant Flute",
+
+  "entity.rustsfrogfish.giganhinga" : "Giganhinga",
+  "entity.rustsfrogfish.neilpeartia" : "Neilpeartia",
+  "entity.rustsfrogfish.tapejara" : "Tapejara",
+  "entity.rustsfrogfish.blochius" : "Blochius",
 
   "item.minecraft.potion.effect.glow_potion": "Potion of Glowing",
   "item.minecraft.splash_potion.effect.glow_potion": "Splash Potion of Glowing",

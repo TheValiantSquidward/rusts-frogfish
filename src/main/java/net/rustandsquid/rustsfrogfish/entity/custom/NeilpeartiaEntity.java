@@ -12,16 +12,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
@@ -36,7 +31,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -68,7 +62,7 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
     }
 
 
-    private final long spawnInterval = 5;
+    private final long spawnInterval = 4800;
     @Override
     public void tick() {
         super.tick();
@@ -143,12 +137,6 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
         }
         this.playSound(SoundEvents.FISHING_BOBBER_SPLASH);
 
-    }
-
-    public static void onRightClickWithShears(PlayerInteractEvent.RightClickItem event) {
-        if (event.getItemStack().getItem() == Items.SHEARS) {
-
-        }
     }
 
     public static AttributeSupplier setAttributes() {
@@ -270,11 +258,11 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
 
 
     public void determineVariant(int variantChange){
-        if (variantChange <= 10) {
+        if (variantChange <= 1) {
             this.setKermit(true);
             this.setVariant(2);
 
-        } else if (variantChange <= 30) {
+        } else if (variantChange <= 50) {
             this.setDull(true);
             this.setVariant(1);
 

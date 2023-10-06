@@ -139,8 +139,8 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.40')
-    implementation fg.deobf('curse.maven:unusual-prehistory-forge-696283:4763681')
-    compileOnly fg.deobf('curse.maven:unusual-prehistory-forge-696283:4763681')
+    implementation fg.deobf('curse.maven:unusual-prehistory-forge-696283:4783706')
+    compileOnly fg.deobf('curse.maven:unusual-prehistory-forge-696283:4783706')
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

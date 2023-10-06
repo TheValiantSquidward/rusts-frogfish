@@ -61,6 +61,14 @@ public class ModBlocks {
             ),
             entry -> new PlaceOnWaterBlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
 
+    public static final Supplier<Block> BLOCHIUS_EGGS = create("blochius_eggs",
+            () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS).instabreak().noOcclusion().noCollission().randomTicks(),
+                    ModEntityTypes.BLOCHIUS,
+                    false
+            ),
+            entry -> new PlaceOnWaterBlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
+
+
     public static final Supplier<Block> GIGANHINGA_EGGS = create("giganhinga_eggs",
             () -> new BlockDinosaurLandEggs(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS).instabreak().noOcclusion().noCollission().randomTicks(),
                     ModEntityTypes.GIGANHINGA,

@@ -89,12 +89,6 @@ public class BlochiusEntity extends WaterAnimal implements Bucketable, IAnimatab
                 return super.canUse() && isInWater();
             }
         });
-        this.goalSelector.addGoal(2, new RandomStrollGoal(this, 0.8D, 15) {
-            @Override
-            public boolean canUse() {
-                return !this.mob.isInWater() && super.canUse();
-            }
-        });
     }
 
     public void checkDespawn() {

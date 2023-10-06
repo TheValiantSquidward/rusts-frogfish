@@ -314,7 +314,7 @@ public class TapejaraEntity extends EntityBaseDinosaurAnimal implements IAnimata
         this.entityData.define(GLOWBERRYCRUSH, false);
         this.entityData.define(ENCRUSTIFY, false);
 
-        this.entityData.define(VARIANT, 0);
+
         this.entityData.define(GILDED, Boolean.valueOf(false));
         this.entityData.define(FLAMBOYANT, Boolean.valueOf(false));
         this.entityData.define(ELEGANT, Boolean.valueOf(false));
