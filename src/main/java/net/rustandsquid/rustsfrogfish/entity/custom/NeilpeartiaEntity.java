@@ -15,6 +15,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -60,6 +61,7 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
     public NeilpeartiaEntity(EntityType<? extends EntityBaseDinosaurAnimal> p_21683_, Level p_21684_) {
         super(p_21683_, p_21684_);
     }
+
 
 
     private final long spawnInterval = 4800;
@@ -126,6 +128,7 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
     protected TagKey<EntityType<?>> getTargetTag() {
         return null;
     }
+
 
     private void spawnRandomItems() {
         RandomSource randomsource = this.getRandom();

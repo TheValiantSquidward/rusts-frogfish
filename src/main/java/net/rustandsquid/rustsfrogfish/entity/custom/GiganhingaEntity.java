@@ -4,11 +4,14 @@ import com.peeko32213.unusualprehistory.common.entity.EntityDunkleosteus;
 import com.peeko32213.unusualprehistory.common.entity.EntityTyrannosaurusRex;
 import com.peeko32213.unusualprehistory.common.entity.msc.util.dino.EntityBaseDinosaurAnimal;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -21,12 +24,19 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cod;
 import net.minecraft.world.entity.animal.Salmon;
 import net.minecraft.world.entity.animal.Squid;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Drowned;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -43,10 +53,11 @@ public class GiganhingaEntity extends EntityBaseDinosaurAnimal implements IAnima
         super(p_27557_, p_27558_);
     }
 
+    private static final ResourceLocation LOOT_TABLE = new ResourceLocation(RustsFrogfish.MOD_ID, "gameplay/anhingaegglay");
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     private int rideCooldown = 0;
     public int soundTimer = 0;
-
+    public int eggTime = this.random.nextInt(6000) + 6000;
     public boolean isRiding = false;
     public boolean entitySpawn = false;
 
@@ -118,6 +129,27 @@ public class GiganhingaEntity extends EntityBaseDinosaurAnimal implements IAnima
     }
 
 
+    public void aiStep() {
+        super.aiStep();
+        if (!this.level.isClientSide && this.isAlive() && --this.eggTime <= 0) {
+            spawnRandomItems();
+            this.gameEvent(GameEvent.ENTITY_PLACE);
+            this.eggTime = this.random.nextInt(6000) + 6000;
+        }
+    }
+
+    private void spawnRandomItems() {
+        RandomSource randomsource = this.getRandom();
+
+        LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerLevel)this.level)).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).withRandom(randomsource);
+        LootTable loottable = this.level.getServer().getLootTables().get(LOOT_TABLE);
+        for (ItemStack itemstack : loottable.getRandomItems(lootcontext$builder.create(LootContextParamSets.GIFT))) {
+            this.level.addFreshEntity(new ItemEntity(this.level, this.getX(), this.getY(), this.getZ(), itemstack));
+        }
+        this.playSound(SoundEvents.CHICKEN_EGG);
+
+    }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (this.getDeltaMovement().horizontalDistanceSqr() > 1.0E-6 && !this.isSwimming()) {
             {
@@ -144,10 +176,6 @@ public class GiganhingaEntity extends EntityBaseDinosaurAnimal implements IAnima
             this.stopRiding();
         } else if (mount instanceof Player player && this.isPassenger()) {
             this.setDeltaMovement(0, 0, 0);
-            //this.yBodyRot = ((LivingEntity) player).yBodyRot;
-            //this.setYRot(player.getYRot());
-            //this.yHeadRot = ((LivingEntity) player).yHeadRot;
-            //this.yRotO = ((LivingEntity) player).yHeadRot;
             float radius = 0F;
             float angle = (0.01745329251F * (player.yBodyRot - 180F));
             double extraX = radius * Mth.sin((float) (Math.PI + angle));
@@ -190,7 +218,18 @@ public class GiganhingaEntity extends EntityBaseDinosaurAnimal implements IAnima
         return super.mobInteract(player, hand);
     }
 
+    public void readAdditionalSaveData(CompoundTag pCompound) {
+        super.readAdditionalSaveData(pCompound);
+        if (pCompound.contains("EggLayTime")) {
+            this.eggTime = pCompound.getInt("EggLayTime");
+        }
 
+    }
+
+    public void addAdditionalSaveData(CompoundTag pCompound) {
+        super.addAdditionalSaveData(pCompound);
+        pCompound.putInt("EggLayTime", this.eggTime);
+    }
 
 
     //sounds

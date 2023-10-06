@@ -6,8 +6,10 @@ import com.peeko32213.unusualprehistory.common.block.BlockDinosaurWaterEggs;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -69,12 +71,13 @@ public class ModBlocks {
             entry -> new PlaceOnWaterBlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
 
 
-    public static final Supplier<Block> GIGANHINGA_EGGS = create("giganhinga_eggs",
-            () -> new BlockDinosaurLandEggs(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS).instabreak().noOcclusion().noCollission().randomTicks(),
-                    ModEntityTypes.GIGANHINGA,
-                    4
-            ),
-            entry -> new BlockItem(entry.get(), new Item.Properties().tab(RUSTSFROGFISH_TAB)));
+    public static final RegistryObject<Block> GIGANHINGA_EGGS = registerBlock("giganhinga_eggs",
+            () -> new BlockDinosaurLandEggs(
+                    BlockBehaviour.Properties.of(Material.EGG, MaterialColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion(),
+                    ModEntityTypes.GIGANHINGA, 3,
+                    Block.box(3.0D, 0.0D, 3.0D, 12.0D, 7.0D, 12.0D),
+                    Block.box(3.0D, 0.0D, 3.0D, 15.0D, 7.0D, 15.0D)
+            ));
 
     public static final Supplier<Block> TAPEJARA_EGGS = create("tapejara_eggs",
             () -> new BlockDinosaurLandEggs(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS).instabreak().noOcclusion().noCollission().randomTicks(),

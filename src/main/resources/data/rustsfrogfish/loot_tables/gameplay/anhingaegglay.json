@@ -1,0 +1,19 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "rustsfrogfish:throwable_anhinga_egg"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "rustsfrogfish:golden_anhinga_item"
+        }
+      ]
+    }
+  ]
+}

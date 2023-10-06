@@ -648,7 +648,7 @@ public class TapejaraEntity extends EntityBaseDinosaurAnimal implements IAnimata
 
     @Override
     protected TagKey<EntityType<?>> getTargetTag() {
-        return null;
+        return UPTags.HERBIVORES;
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
