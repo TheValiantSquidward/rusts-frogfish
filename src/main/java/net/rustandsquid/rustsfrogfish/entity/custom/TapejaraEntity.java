@@ -67,7 +67,7 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.function.Predicate;
 
-public class TapejaraEntity extends EntityBaseDinosaurAnimal implements IAnimatable, NeutralMob {
+public class TapejaraEntity extends Monster implements IAnimatable, NeutralMob {
     private AnimationFactory factory = GeckoLibUtil.createFactory(this);
     @javax.annotation.Nullable
     private UUID persistentAngerTarget;
@@ -100,7 +100,7 @@ public class TapejaraEntity extends EntityBaseDinosaurAnimal implements IAnimata
     private boolean isLandNavigator;
     private int timeFlying;
 
-    public TapejaraEntity(EntityType<? extends EntityBaseDinosaurAnimal> entityType, net.minecraft.world.level.Level level) {
+    public TapejaraEntity(EntityType<? extends Monster> entityType, net.minecraft.world.level.Level level) {
         super(entityType, level);
         this.switchNavigator(true);
     }
@@ -604,51 +604,6 @@ public class TapejaraEntity extends EntityBaseDinosaurAnimal implements IAnimata
         }
 
         return shouldHurt;
-    }
-
-    @Override
-    protected SoundEvent getAttackSound() {
-        return null;
-    }
-
-    @Override
-    protected int getKillHealAmount() {
-        return 0;
-    }
-
-    @Override
-    protected boolean canGetHungry() {
-        return false;
-    }
-
-    @Override
-    protected boolean hasTargets() {
-        return false;
-    }
-
-    @Override
-    protected boolean hasAvoidEntity() {
-        return false;
-    }
-
-    @Override
-    protected boolean hasCustomNavigation() {
-        return false;
-    }
-
-    @Override
-    protected boolean hasMakeStuckInBlock() {
-        return false;
-    }
-
-    @Override
-    protected boolean customMakeStuckInBlockCheck(BlockState blockState) {
-        return false;
-    }
-
-    @Override
-    protected TagKey<EntityType<?>> getTargetTag() {
-        return UPTags.HERBIVORES;
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {

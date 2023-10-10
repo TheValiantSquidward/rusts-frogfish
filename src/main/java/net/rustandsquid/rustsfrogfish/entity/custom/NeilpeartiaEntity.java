@@ -16,6 +16,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -44,7 +45,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 
-public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnimatable {
+public class NeilpeartiaEntity extends WaterAnimal implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     private static final ResourceLocation LOOT_TABLE = new ResourceLocation(RustsFrogfish.MOD_ID, "gameplay/frogfishing");
 
@@ -58,7 +59,7 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
     private static final EntityDataAccessor<Boolean> FISHINGFROG = SynchedEntityData.defineId(NeilpeartiaEntity.class, EntityDataSerializers.BOOLEAN);
 
 
-    public NeilpeartiaEntity(EntityType<? extends EntityBaseDinosaurAnimal> p_21683_, Level p_21684_) {
+    public NeilpeartiaEntity(EntityType<? extends WaterAnimal> p_21683_, Level p_21684_) {
         super(p_21683_, p_21684_);
     }
 
@@ -83,52 +84,6 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
             }
         }
     }
-
-    @Override
-    protected SoundEvent getAttackSound() {
-        return null;
-    }
-
-    @Override
-    protected int getKillHealAmount() {
-        return 0;
-    }
-
-    @Override
-    protected boolean canGetHungry() {
-        return false;
-    }
-
-    @Override
-    protected boolean hasTargets() {
-        return false;
-    }
-
-    @Override
-    protected boolean hasAvoidEntity() {
-        return false;
-    }
-
-    @Override
-    protected boolean hasCustomNavigation() {
-        return false;
-    }
-
-    @Override
-    protected boolean hasMakeStuckInBlock() {
-        return false;
-    }
-
-    @Override
-    protected boolean customMakeStuckInBlockCheck(BlockState blockState) {
-        return false;
-    }
-
-    @Override
-    protected TagKey<EntityType<?>> getTargetTag() {
-        return null;
-    }
-
 
     private void spawnRandomItems() {
         RandomSource randomsource = this.getRandom();
@@ -285,13 +240,6 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
         this.determineVariant(variantChange);
         return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
-
-    @Nullable
-    @Override
-    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return null;
-    }
-
 
     private <E extends IAnimatable> PlayState eatPredicate(AnimationEvent<E> event) {
         if (this.spawnInterval > 0) {
