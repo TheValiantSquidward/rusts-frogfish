@@ -1,0 +1,11 @@
+{
+  "type": "unusualprehistory:cultivator",
+  "ingredients": [
+    {
+      "item": "rustsfrogfish:tapejara_dna"
+    }
+  ],
+  "output": {
+    "item": "rustsfrogfish:tapejara_eggs"
+  }
+}

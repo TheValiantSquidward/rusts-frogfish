@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "rustsfrogfish:item/blochius_eggs"
+    "layer0": "rustsfrogfish:item/blochius_egg"
   }
 }
