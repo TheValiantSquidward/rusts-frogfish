@@ -292,10 +292,24 @@ public class NeilpeartiaEntity extends EntityBaseDinosaurAnimal implements IAnim
         return null;
     }
 
+
+    private <E extends IAnimatable> PlayState eatPredicate(AnimationEvent<E> event) {
+        if (this.spawnInterval > 0) {
+            event.getController().setAnimation(new AnimationBuilder().loop("animation.model.gulp"));
+            return PlayState.CONTINUE;
+        }
+        event.getController().markNeedsReload();
+        return PlayState.STOP;
+    }
+
+
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller", 5, this::predicate));
+        data.addAnimationController(new AnimationController<>(this, "eatController", 1, this::eatPredicate));
+
     }
+
 
     @Override
     public AnimationFactory getFactory() {

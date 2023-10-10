@@ -11,6 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
+import net.rustandsquid.rustsfrogfish.block.ModBlocks;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
 import net.rustandsquid.rustsfrogfish.item.armor.material.ModArmorMaterials;
 import net.rustandsquid.rustsfrogfish.item.custom.ThrowableEggItem;
@@ -66,13 +67,13 @@ public class ModItems {
                             .build())
             ));
 
-
     public static final RegistryObject<Item> STONY_SEEDS = ITEMS.register("stony_seeds",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+            () -> new ItemNameBlockItem(ModBlocks.BANANA_CROP.get(), new
+                    Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
 
     public static final RegistryObject<Item> PURPLE_BANANA = ITEMS.register("ensete_oregonese_fruit",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)
-                    .food(new FoodProperties.Builder().nutrition(5).saturationMod(7)
+                    .food(new FoodProperties.Builder().nutrition(5).saturationMod(7).effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED,500, 1), 1f)
                             .build())
             ));
 
@@ -81,8 +82,6 @@ public class ModItems {
                     .food(new FoodProperties.Builder().nutrition(6).saturationMod(4)
                             .build())
             ));
-
-
 
     //crafting items
     public static final RegistryObject<Item> FROGFISH_LURE = ITEMS.register("frogfish_lure",

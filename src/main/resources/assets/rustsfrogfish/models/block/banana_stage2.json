@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "rustsfrogfish:block/banan_stage3_bottom"
+  }
+}

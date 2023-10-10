@@ -1,7 +1,7 @@
 {
   "parent": "unusualprehistory:block/template_eggs/template_flat_water_egg",
   "textures": {
-    "texture": "rustsfrogfish:block/e"
+    "texture": "rustsfrogfish:block/blochius_egg"
   },
   "render_type": "cutout"
 }

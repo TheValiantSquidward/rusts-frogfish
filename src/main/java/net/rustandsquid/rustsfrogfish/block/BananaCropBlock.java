@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.rustandsquid.rustsfrogfish.item.ModItems;
 
 public class BananaCropBlock extends CropBlock {
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 4);
@@ -15,7 +16,7 @@ public class BananaCropBlock extends CropBlock {
     }
     @Override
     protected ItemLike getBaseSeedId() {
-        return null;
+        return ModItems.STONY_SEEDS.get();
     }
 
     @Override
@@ -25,7 +26,7 @@ public class BananaCropBlock extends CropBlock {
 
     @Override
     public int getMaxAge() {
-        return 4;
+        return 3;
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

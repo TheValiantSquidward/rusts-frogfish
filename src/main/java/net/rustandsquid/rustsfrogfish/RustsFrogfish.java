@@ -3,6 +3,8 @@ package net.rustandsquid.rustsfrogfish;
 import com.mojang.logging.LogUtils;
 import com.peeko32213.unusualprehistory.common.config.UnusualPrehistoryConfig;
 import com.peeko32213.unusualprehistory.core.registry.UPTags;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -102,6 +104,7 @@ public class RustsFrogfish {
             EntityRenderers.register
                     (ModEntityTypes.TAPEJARA.get(), TapejaraRenderer::new);
 
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.BANANA_CROP.get(), RenderType.cutout());
 
         }
     }
