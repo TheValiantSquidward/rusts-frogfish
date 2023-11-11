@@ -242,7 +242,7 @@ public class NeilpeartiaEntity extends WaterAnimal implements IAnimatable {
     }
 
     private <E extends IAnimatable> PlayState eatPredicate(AnimationEvent<E> event) {
-        if (this.spawnInterval > 0) {
+        if (this.spawnInterval == 0) {
             event.getController().setAnimation(new AnimationBuilder().loop("animation.model.gulp"));
             return PlayState.CONTINUE;
         }

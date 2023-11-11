@@ -234,15 +234,15 @@ public class GiganhingaEntity extends EntityBaseDinosaurAnimal implements IAnima
 
     //sounds
 protected SoundEvent getAmbientSound() {
-    return ModSounds.ANHINGAIDLE.get();
+    return null;
 }
 
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return ModSounds.ANHINGAHURT.get();
+        return null;
     }
 
     protected SoundEvent getDeathSound() {
-        return ModSounds.ANHINGADEATH.get();
+        return null;
     }
 
     protected void playStepSound(BlockPos p_28301_, BlockState p_28302_) {

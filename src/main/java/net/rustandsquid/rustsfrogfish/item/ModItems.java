@@ -2,7 +2,6 @@ package net.rustandsquid.rustsfrogfish.item;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -13,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.block.ModBlocks;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
-import net.rustandsquid.rustsfrogfish.item.armor.material.ModArmorMaterials;
+import net.rustandsquid.rustsfrogfish.item.custom.GildedHornItem;
 import net.rustandsquid.rustsfrogfish.item.custom.ThrowableEggItem;
 import net.rustandsquid.rustsfrogfish.item.custom.ThrowableGoldenEggItem;
 import net.rustandsquid.rustsfrogfish.sound.ModSounds;
@@ -108,10 +107,10 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB).stacksTo(1), 262));
 
     public static final RegistryObject<Item> FROGHAT = ITEMS.register("froghat",
-            () -> new ArmorItem(ModArmorMaterials.FROGHAT, EquipmentSlot.HEAD, new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB)));
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB).stacksTo(1)));
 
     public static final RegistryObject<Item> GILDED_HORN = ITEMS.register("gilded_horn",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB).stacksTo(1)));
+            () -> new GildedHornItem(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB).stacksTo(1)));
 
     public static final RegistryObject<Item> FLAMBOYANT_SAXOPHONE = ITEMS.register("flamboyant_saxophone",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.RUSTSFROGFISH_TAB).stacksTo(1)));

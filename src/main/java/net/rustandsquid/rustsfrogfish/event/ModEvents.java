@@ -6,10 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.rustandsquid.rustsfrogfish.RustsFrogfish;
 import net.rustandsquid.rustsfrogfish.entity.ModEntityTypes;
-import net.rustandsquid.rustsfrogfish.entity.client.armor.FroghatRenderer;
 import net.rustandsquid.rustsfrogfish.entity.custom.*;
-import net.rustandsquid.rustsfrogfish.item.armor.Froghat;
-import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 public class ModEvents {
     @Mod.EventBusSubscriber(modid = RustsFrogfish.MOD_ID)
